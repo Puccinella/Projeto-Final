@@ -1,4 +1,4 @@
-const db = require("../config/db.cjs")
+module.exports = (sequelize, DataTypes) => {
 
 const jogo = db.sequelize.define("Jogos",{
     titulo: {
@@ -23,5 +23,5 @@ const jogo = db.sequelize.define("Jogos",{
         allowNull: true
     }
 })
-
-module.exports = jogo;
+return jogo;
+}
