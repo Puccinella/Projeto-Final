@@ -6,16 +6,69 @@
 body{
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 header{
     border: 2px solid red;
-    height: 15%;
+    height: 8%;
+    background-color: rgb(77, 71, 71);;
+}
+.head1{
+    height: 30%;
+    text-align: center;
+}
+header p{
+    display: inline;
+}
+nav{
+    height: 70%;
+    border: 2px solid orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+nav p{
+    display: inline;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    
 }
 main{
     border: 2px solid green;
     height: 70%;
+    display: flex;
+    flex-direction: column;
 }
+.tlmaior{
+    background-color: lightgray;;
+    height: 20%;
+}
+.tlmenor{
+    background-color: gray;
+    height: 20%;
+}  
+.tleventos{
+    background-color: darkgray;;
+    height: 20%;
+
+}
+
+.tlpromocao{
+    background-color: dimgray;;
+    height: 20%;
+
+}
+.tlcategoria{
+    background-color: silver;;
+    height: 20%;
+
+}
+
+
 footer{
     border: 2px solid blue;
-    height: 15%;
+    height: 22%;
 }
