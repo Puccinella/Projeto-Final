@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+header{
+    border: 2px solid red;
+    height: 15%;
+}
+main{
+    border: 2px solid green;
+    height: 70%;
+}
+footer{
+    border: 2px solid blue;
+    height: 15%;
+}
