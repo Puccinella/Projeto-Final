@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 const sql = new Sequelize(
-    "pj-final",
+    "pj_final",
     "root",
-    "250736",
+    "Aluno123",
     {
         host: "LocalHost",
         dialect: 'mysql'
