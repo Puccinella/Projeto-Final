@@ -1,27 +1,28 @@
-module.exports = (sequelize) => {
+const { Sequelize, DataTypes } = require('sequelize');
+const sql = require('../config/db.cjs');
 
-const jogo = db.sequelize.define("Jogos",{
+const jogo = sql.define("Jogos",{
     titulo: {
-        type: db.sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
         unique: true
     },
     preco: {
-        type: db.sequelize.FLOAT,
+        type: DataTypes.FLOAT,
         allowNull: true
     },
     distribuidora: {
-        type: db.sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
     },
     categoria: {
-        type: db.sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
     },
     descricao: {
-        type: db.sequelize.TEXT,
+        type: DataTypes.TEXT,
         allowNull: true
     }
-})
-return jogo;
-}
+});
+
+module.exports = jogo;
