@@ -22,7 +22,29 @@ const jogo = sql.define("Jogos",{
     descricao: {
         type: DataTypes.TEXT,
         allowNull: true
+    },
+    desenvolvedor: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'Usuários',
+            key: 'id'
+        }
     }
+});
+jogo.sync().then(() => {
+    console.log('Tabela Jogos criada com sucesso!');
+    return jogo.create({
+        titulo: 'GTA V',
+        preco: 129.99,
+        distribuidora: 'Rockstar Games',
+        categoria: 'Ação/Aventura',
+        descricao: 'Explore a vasta cidade de Los Santos e embarque em missões emocionantes neste jogo de mundo aberto.'
+    });
+}).then(novoJogo => {
+    console.log('Jogo criado com sucesso');
+}).catch(erro => {
+    console.error('Erro:', erro);
 });
 
 module.exports = jogo;
