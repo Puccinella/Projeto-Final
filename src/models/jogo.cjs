@@ -27,7 +27,7 @@ const jogo = sql.define("Jogos",{
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-            model: 'Usuários',
+            model: 'Usuarios',
             key: 'id'
         }
     }
@@ -47,4 +47,16 @@ jogo.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-module.exports = jogo;
+function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor) {
+    return jogo.create({
+        titulo: titulo,
+        preco: preco,
+        distribuidora: distribuidora,
+        categoria: categoria,
+        descricao: descricao,
+        desenvolvedor: desenvolvedor
+    });
+}
+
+
+module.exports = {jogo, cadastrarJogo};

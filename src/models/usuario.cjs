@@ -1,7 +1,13 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sql = require('../config/db.cjs');
 
-const usuario = sql.define("Usuários",{
+sql.sync({ force: false }) 
+  .then(() => console.log('Tabelas sincronizadas!'))
+  .catch(err => console.error(err));
+
+
+
+const Usuario = sql.define("Usuario",{
     nome: {
         type: DataTypes.STRING,
         allowNull: true
@@ -19,7 +25,8 @@ const usuario = sql.define("Usuários",{
         type: DataTypes.STRING,
         allowNull: true,
         unique: true
-    }
+    },
+    tableName: 'usuarios'
 });
 
 
@@ -37,4 +44,4 @@ usuario.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-module.exports = usuario;
+module.exports = Usuario; 

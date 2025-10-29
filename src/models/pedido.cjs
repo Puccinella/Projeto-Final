@@ -6,7 +6,7 @@ const pedido = sql.define("Pedidos",{
         type: DataTypes.INTEGER,
         allowNull: true,
         refences: {
-            model: 'Usuários',
+            model: 'usuarios',
             key: 'id'
         }
     },
@@ -32,7 +32,7 @@ const pedido = sql.define("Pedidos",{
 pedido.sync().then(() => {
     console.log('Tabela Pedidos criada com sucesso!');
     return pedido.create({
-        comprador: 'Pedro',
+        comprador_id: 1,
         preco_total: 259.98,
         qtd_produtos: 2,
         produtos: 'GTA V, The Witcher 3',
@@ -44,4 +44,14 @@ pedido.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-module.exports = pedido;
+function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data_compra) {
+    return pedido.create({
+        comprador_id: comprador_id,
+        preco_total: preco_total,
+        qtd_produtos: qtd_produtos,
+        produtos: produtos,
+        data_compra: data_compra
+    });
+}
+
+module.exports = {pedido, cadastrarPedido};
