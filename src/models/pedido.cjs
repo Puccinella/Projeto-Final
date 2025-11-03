@@ -4,11 +4,7 @@ const sql = require('../config/db.cjs');
 const pedido = sql.define("Pedidos",{
     comprador_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'Usuarios',
-            key: 'id'
-        }
+        allowNull: true
     },
     preco_total: {
         type: DataTypes.FLOAT,

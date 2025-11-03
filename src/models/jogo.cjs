@@ -25,11 +25,7 @@ const jogo = sql.define("Jogos",{
     },
     desenvolvedor: {
         type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-            model: 'Usuarios',
-            key: 'id'
-        }
+        allowNull: true
     }
 });
 jogo.sync().then(() => {
