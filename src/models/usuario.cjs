@@ -7,7 +7,7 @@ sql.sync({ force: false })
 
 
 
-const Usuario = sql.define("Usuario",{
+const Usuario = sql.define("Usuarios",{
     nome: {
         type: DataTypes.STRING,
         allowNull: true
@@ -26,13 +26,15 @@ const Usuario = sql.define("Usuario",{
         allowNull: true,
         unique: true
     },
-    tableName: 'usuarios'
+    }, 
+    {
+    tableName: 'Usuarios'
 });
 
 
-usuario.sync().then(() => {
+Usuario.sync().then(() => {
     console.log('Tabela Usuários criada com sucesso!');
-    return usuario.create({
+    return Usuario.create({
         nome: 'Pedro',
         email: 'pedro@email.com',
         senha: 'pedro123',

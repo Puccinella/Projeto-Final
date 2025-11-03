@@ -5,8 +5,8 @@ const pedido = sql.define("Pedidos",{
     comprador_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        refences: {
-            model: 'usuarios',
+        references: {
+            model: 'Usuarios',
             key: 'id'
         }
     },
@@ -38,12 +38,13 @@ pedido.sync().then(() => {
         produtos: 'GTA V, The Witcher 3',
         data_compra: new Date(2025, 5, 15)
     });
-}).then(novopedido => {
+}).then(novoPedido => {
     console.log('pedido criado com sucesso');
 }).catch(erro => {
     console.error('Erro:', erro);
 });
 
+/*
 function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data_compra) {
     return pedido.create({
         comprador_id: comprador_id,
@@ -53,5 +54,6 @@ function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data
         data_compra: data_compra
     });
 }
+*/
 
-module.exports = {pedido, cadastrarPedido};
+module.exports = pedido;

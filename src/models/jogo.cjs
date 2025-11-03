@@ -59,4 +59,4 @@ function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desen
 }
 
 
-module.exports = {jogo, cadastrarJogo};
+module.exports = jogo;
