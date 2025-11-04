@@ -35,7 +35,8 @@ jogo.sync().then(() => {
         preco: 129.99,
         distribuidora: 'Rockstar Games',
         categoria: 'Ação/Aventura',
-        descricao: 'Explore a vasta cidade de Los Santos e embarque em missões emocionantes neste jogo de mundo aberto.'
+        descricao: 'Explore a vasta cidade de Los Santos e embarque em missões emocionantes neste jogo de mundo aberto.',
+        desenvolvedor: '1'
     });
 }).then(novoJogo => {
     console.log('Jogo criado com sucesso');
