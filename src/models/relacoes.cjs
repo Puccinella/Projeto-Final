@@ -26,14 +26,6 @@ usuario.findOne({ where: { nome: 'Pedro' } })
   .catch(err => console.error('Erro:', err));
 
 
-usuario.hasMany(jogo, {
-  foreignKey: 'desenvolvedor',
-  onDelete: 'SET NULL',
-  onUpdate: 'CASCADE'
-});
-
-jogo.belongsTo(usuario, {
-  foreignKey: 'desenvolvedor'
-});
+jogo.belongsTo(usuario, { foreignKey: 'desenvolvedor' });
 
 module.exports = { usuario, pedido, jogo };
