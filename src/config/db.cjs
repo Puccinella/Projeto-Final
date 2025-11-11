@@ -2,10 +2,11 @@ const { Sequelize } = require('sequelize');
 const sql = new Sequelize(
     "pj_final",
     "root",
-    "Aluno123",
+    "aluno123",
     {
-        host: "LocalHost",
-        dialect: 'mysql'
+        host: "localhost",
+        dialect: 'mysql',
+        port: 3306
     }
 );
 
