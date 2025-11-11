@@ -16,4 +16,4 @@ sql.authenticate().then((function(){
     console.log("ferrou não deu" + erro)
 })
 
-module.exports = sql;
+module.exports = sql; 
