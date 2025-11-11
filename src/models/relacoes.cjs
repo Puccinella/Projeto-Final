@@ -1,6 +1,6 @@
 const usuario = require('./usuario.cjs');
-const pedido = require('./pedido.cjs');
 const jogo = require('./jogo.cjs');
+const pedido = require('./pedido.cjs');
 
 usuario.hasOne(pedido, { foreignKey: 'comprador_id' });
 pedido.belongsTo(usuario, { foreignKey: 'comprador_id' });
@@ -8,7 +8,6 @@ pedido.belongsTo(usuario, { foreignKey: 'comprador_id' });
 
 usuario.hasMany(jogo, { foreignKey: 'desenvolvedor' });
 jogo.belongsTo(usuario, { foreignKey: 'desenvolvedor' });
-
 
 usuario.findOne({ where: { nome: 'Pedro' } })
   .then(usuarioEncontrado => {
