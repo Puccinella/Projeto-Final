@@ -3,6 +3,7 @@ const router = express.Router();
 
 const controllerCadastro = require('../controllers/controllerCadastro');
 
-router.get('/cadastro', controllerCadastro.paginaCadastro);
+router.get('/', controllerCadastro.paginaCadastro);
+router.get('../views/pages/cadastro', controllerCadastro.paginaCadastro);
 
 module.exports = router;
