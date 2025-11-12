@@ -14,4 +14,4 @@ const routesInicial = require('./routes/routeInicial');
 app.use('/', routesInicial);
 app.use('/tasks', routes);
 
-module.exports = {app, path};  
+module.exports = {app, path};
