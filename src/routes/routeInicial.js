@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const controllerCadastro = require('../controllers/controllerCadastro');
+const controllerInicio = require('../controllers/controllerInicio');
 
-router.get('/', controllerCadastro.paginaCadastro);
-router.get('../views/pages/cadastro', controllerCadastro.paginaCadastro);
+router.get('/', controllerInicio.paginaInicio);
 
 module.exports = router;
