@@ -71,3 +71,44 @@ main { padding-bottom: 80px; } /* >= altura do footer */
   position: absolute !important;
   z-index: 2000 !important;
 }
+
+.redondo{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: forestgreen;
+    border: 1px solid black;
+    background-image: url(../public/media/R.png);
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+  height: 20vh;
+}
+
+main{
+  min-height: 80vh;
+}
+
+.quadrado{
+  min-width: 100px;
+  height: 100px;
+  background-color: coral;
+  border: 1px solid black;
+}
+
+.col{
+  margin-bottom: 10px;
+}
+
+.cards{
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+footer{
+  height: 20vh;
+}
+
