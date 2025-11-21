@@ -36,13 +36,17 @@
             background-color: lightgray;
             padding: 20px;
         }
+        .login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .login > .col{
             padding: 20px;
-            max-width: 600px;
+            max-width: 60vw;
             margin: 10px;
             border: 2px solid lightgray;
             border-radius: 5%;
-            box-shadow: 13px 12px 10px rgb(174, 171, 171);
         }
     </style>
 </head>
@@ -54,9 +58,10 @@
 
     <main>
 
-        <div class="container login-2">
-            <div class="row login">
-                <div class="col ">
+        <div class="container">
+            <div class="row login d-flex justify-content: center;
+            align-items: center;">
+                <div class="col shadow-lg ">
                     <h1>Cadastro de Usuário</h1>
                     <form action="/cadastro" method="post">
                         <div class="mb-3">
