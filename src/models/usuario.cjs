@@ -46,4 +46,16 @@ Usuario.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-module.exports = Usuario; 
+function criarUsuario(nome, email, senha, telefone) {
+    return Usuario.create({
+        nome: nome,
+        email: email,
+        senha: senha,
+        telefone: telefone
+    })
+}
+
+module.exports = {
+    Usuario,
+    criarUsuario
+};
