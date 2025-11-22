@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const sql = new Sequelize(
     "pj_final",
     "root",
-    "250736",
+    "Aluno123",
     {
         host: "localhost",
         dialect: 'mysql',
