@@ -1,9 +1,42 @@
 const path = require("path");
+const { Usuario } = require("../models/usuario.cjs");
+const bcrypt = require("bcrypt");
 
 const paginaEntrar = (req, res) => {
     res.render('../views/pages/entrar');
 };
 
+const login = async (req, res) => {
+    try {
+        const email = req.body.email;
+        const senha = req.body.password;
+        console.log('Login attempt for:', email);
+
+        const usuario = await Usuario.findOne({ where: { email } });
+        if (!usuario) {
+            console.log("Email inválido");
+            return res.redirect('/entrar');
+        }
+
+        const senhaValida = await bcrypt.compare(senha, usuario.senha);
+        if (!senhaValida) {
+            console.log("Senha inválida");
+            return res.redirect('/entrar');
+        }
+
+        req.session.idUsuario = usuario.id;
+        req.session.nome = usuario.nome;
+
+        console.log(req.session.idUsuario, req.session.nome);
+        
+        return res.redirect('/');
+    } catch (err) {
+        console.error('Erro no login:', err);
+        return res.status(500).send('Erro no servidor');
+    }
+};
+
 module.exports = {
-    paginaEntrar
+    paginaEntrar,
+    login
 };

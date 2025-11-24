@@ -57,8 +57,18 @@ async function criarUsuario(nome, telefone, email, senha) {
     }) 
 }
 
-function editarUsuario() {
-    
+function editarUsuario(req, res) {
+    const id = req.session.idUsuario
+    return Usuario.update({
+        nome: req.body.nome,
+        telefone: req.body.telefone,
+        email: req.body.email,
+        senha: req.body.senhacriptografada
+    },
+    {
+        where: {id: id}
+    }
+    )
 }
 
 module.exports = {
