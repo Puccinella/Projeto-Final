@@ -40,7 +40,6 @@ pedido.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-/*
 function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data_compra) {
     return pedido.create({
         comprador_id: comprador_id,
@@ -50,6 +49,6 @@ function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data
         data_compra: data_compra
     });
 }
-*/
+
 
 module.exports = pedido;

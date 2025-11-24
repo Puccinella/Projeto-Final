@@ -17,6 +17,7 @@ const routeConfigConta = require('./routes/routeConfigConta');
 const routeCadastroJogos = require('./routes/routeCadastroJogos');
 const routeCarrinho = require('./routes/routeCarrinho');
 const routePagamento = require('./routes/routePagamento');
+const routeEntrar = require("./routes/routeEntrar");
 
 app.use('/', routesInicial);
 app.use('/', routeCadastro);
@@ -24,5 +25,6 @@ app.use('/', routeConfigConta);
 app.use('/', routeCadastroJogos);
 app.use('/', routeCarrinho);
 app.use('/', routePagamento);
+app.use('/', routeEntrar);
 
 module.exports = { app };

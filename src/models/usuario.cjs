@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sql = require('../config/db.cjs');
+const bcrypt = require('bcrypt');
 
 sql.sync({ force: false }) 
   .then(() => console.log('Tabelas sincronizadas!'))
@@ -26,7 +27,7 @@ const Usuario = sql.define("Usuarios",{
         allowNull: true,
         unique: true
     },
-    }, 
+    },
     {
     tableName: 'Usuarios'
 });
@@ -46,13 +47,18 @@ Usuario.sync().then(() => {
     console.error('Erro:', erro);
 });
 
-function criarUsuario(nome, email, senha, telefone) {
+async function criarUsuario(nome, telefone, email, senha) {
+    const senhacriptografada = await bcrypt.hash(senha, 10);
     return Usuario.create({
         nome: nome,
+        telefone: telefone,
         email: email,
-        senha: senha,
-        telefone: telefone
-    })
+        senha: senhacriptografada,
+    }) 
+}
+
+function editarUsuario() {
+    
 }
 
 module.exports = {
