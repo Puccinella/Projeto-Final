@@ -26,7 +26,7 @@
         }
         main{
             display: flex;
-            flex: 2;
+            flex: 7;
         }
         .row1 > .col1{
             flex: 3;
@@ -36,21 +36,24 @@
         }
         .row1_1{
             background-color: aqua;
-            gap: 10px;
-            flex: 1;
+            flex: 4;
+            height: 25%;
         }
         .row1_2{
             flex: 1;
+            height: 15%;
         }
         .row1_3{
-            flex: 1;
+            flex: 3;
+            height: 60%;
         }
         .row1_2 > .col1_2_1{
             background-color: azure;
             padding: 10px;
+            flex: 4;
         }
         .col1{
-            max-width: 600px;
+            max-width: 800px;
             background-color: lightgray; ;
 
         }
@@ -68,6 +71,29 @@
         }
         .col2_2 {
             text-align: center;
+        }
+        .row2_1{
+            flex: 1;
+            height: 50%;
+        }
+        .row2_2{
+            height: 50%;
+            flex: 1;
+        }
+        .col1_2_1_1_2{
+            text-align: center;
+            font-size: 12px;
+            flex: 1;
+        }
+        .col1_2_1_1_1{
+            text-align: center;
+            font-size: 12px;
+            flex: 1;
+        }
+        .col1_2_2{
+            text-align: end;
+            font-size: 12px;
+            flex: 1;
         }
     </style>
 
@@ -98,17 +124,23 @@
                             <div class="row row1_2_1_1">
 
                                 <div class="col col1_2_1_1_1">
-                                    continuar comprando
+                                    <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                                        Continuar comprando
+                                    </a>                           
                                 </div>
                                 <div class="col col1_2_1_1_2">
-                                    continuar para o pagamento
+                                    <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                                        Continuar para o pagamento
+                                    </a>                           
                                 </div>
 
                             </div>
 
                         </div>
                         <div class="col col1_2_2">
-                            remover itens
+                            <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                                Excluir itens
+                            </a>
                         </div>
 
                     </div>
