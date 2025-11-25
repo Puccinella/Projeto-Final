@@ -28,21 +28,6 @@ const jogo = sql.define("Jogos",{
         allowNull: true
     }
 });
-jogo.sync().then(() => {
-    console.log('Tabela Jogos criada com sucesso!');
-    return jogo.create({
-        titulo: 'GTA V',
-        preco: 129.99,
-        distribuidora: 'Rockstar Games',
-        categoria: 'Ação/Aventura',
-        descricao: 'Explore a vasta cidade de Los Santos e embarque em missões emocionantes neste jogo de mundo aberto.',
-        desenvolvedor: '1'
-    });
-}).then(novoJogo => {
-    console.log('Jogo criado com sucesso');
-}).catch(erro => {
-    console.error('Erro:', erro);
-});
 
 function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor) {
     return jogo.create({
