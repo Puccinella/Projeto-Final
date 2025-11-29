@@ -68,8 +68,7 @@ async function editarUsuario(idUsuario ,novoNome, novoTelefone, novoEmail, novaS
     }
 };
 
-function deletarUsuario(req, res) {
-    const id = req.session.idUsuario
+function deletarUsuario(id) {
     return Usuario.destroy({
         where: {id: id}
     })
