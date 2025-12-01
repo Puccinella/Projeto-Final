@@ -74,7 +74,17 @@ function deletarUsuario(id) {
     })
 }
 
-criarUsuario('Admin Pedro','1201234567', 'pedro@email.com', 'pedro123');
+async function procurarAdmin(adminEmail) {
+    const administrador = await Usuario.findOne({
+        where: {email: adminEmail}
+    });
+    if (!administrador) {
+        await criarUsuario('Admin Pedro','1201234567', 'pedro@email.com', 'pedro123');
+    };
+}
+
+procurarAdmin('pedro@email.com');
+
 
 module.exports = {
     Usuario,

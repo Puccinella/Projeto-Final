@@ -29,7 +29,7 @@ const jogo = sql.define("Jogos",{
     }
 });
 
-function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor) {
+async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor) {
     return jogo.create({
         titulo: titulo,
         preco: preco,
@@ -40,5 +40,10 @@ function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desen
     });
 }
 
+async function excluirJogo(id) {
+    return jogo.destroy({
+        where: { id: id}
+    })
+};
 
 module.exports = jogo;
