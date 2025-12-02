@@ -46,4 +46,7 @@ async function excluirJogo(id) {
     })
 };
 
-module.exports = jogo;
+module.exports = {
+    jogo,
+    cadastrarJogo,
+}

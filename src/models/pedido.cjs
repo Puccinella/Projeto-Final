@@ -51,4 +51,7 @@ function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data
 }
 
 
-module.exports = pedido;
+module.exports = {
+    pedido,
+    cadastrarPedido,
+}
