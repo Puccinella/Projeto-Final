@@ -76,68 +76,66 @@
                     </button>
 
                     <!-- Modal do cadastro de jogos -->
-                    <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Informações do jogo:</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="mb-3 row">
-                                    <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays">
+                    <form action="cadastroJogos" method="post">
+                        <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Informações do jogo</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 row">
+                                        <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura...">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3">
+                                        <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
+                                        <textarea class="form-control" id="inputtextearea" rows="3"></textarea>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <label for="inputcriador" class="col-sm-2 col-form-label">
+                                            <select class="form-select" aria-label="default select example">
+                                                <option value="1">Independente</option>
+                                                <option value="2">Estúdio</option>
+                                            </select>
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games...">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
+                                        <input class="form-control" type="file" id="formFile">
                                     </div>
                                 </div>
-
-                                <hr>
-
-                                <div class="mb-3 row">
-                                    <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura...">
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
                                 </div>
-
-                                <hr>
-
-                                <div class="mb-3 row">
-                                    <label for="inputcriador" class="col-sm-2 col-form-label">
-                                        <select class="form-select" aria-label="default select example">
-                                            <option value="1">Independente</option>
-                                            <option value="2">Estúdio</option>
-                                        </select>
-                                    </label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games...">
-                                    </div>
-                                </div>
-
-                                <hr>
-
-                                <div class="mb-3 row">
-                                    <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01">
-                                    </div>
-                                </div>
-
-                                <hr>
-
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-
+                                </div>k
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Salvar alterações</button>
-                            </div>
-                            </div>
-                        </div>
+                    </form>
+
                     </div>
 
                 </div>
