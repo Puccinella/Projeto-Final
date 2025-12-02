@@ -68,87 +68,75 @@
             align-items: center;">
                 <div class="col shadow-lg ">
 
-                    <h1 class="mb-5">Clique no botão para alterar as informações do usuário:</h1>
+                    <h1 class="mb-5">Clique no botão para cadastrar seu jogo:</h1>
 
-                    <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
+                    <!-- Botão do modal (sempre copiar esse kkkkkkk) 
+                        nome
+
+                    -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Editar informações do perfil
+                        Alterar informações do perfil
                     </button>
 
                     <!-- Modal do cadastro de jogos -->
-                    <form action="/cadastroJogos" method="post">
+                    <form action="configconta" method="post">
                         <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Informações do perfil</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Informações do jogo</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-
                                 <div class="modal-body">
-
-                                        <div class="mb-3 row">
-                                            <label for="inputnome" class="col-sm-2 col-form-label">Nome atual:</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputnome" placeholder="eliaszinho" name="nome">
-                                            </div>
-
-                                            <label for="inputnome" class="col-sm-2 col-form-label">Nome:</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputnome" placeholder="eliaszinho" name="nome">
-                                            </div>
-
-                                        </div>
-                                        
-                                    <hr>
-
                                     <div class="mb-3 row">
-                                        <label for="inputemail" class="col-sm-2 col-form-label">Email atual:</label>
+                                        <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo:</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputemail" placeholder="email@gmail.com" name="email">
-                                        </div>
-                                        <label for="inputemail" class="col-sm-2 col-form-label">Email:</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputemail" placeholder="email@gmail.com" name="email">
+                                            <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays">
                                         </div>
                                     </div>
-
                                     <hr>
-
                                     <div class="mb-3 row">
-                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Telefone atual:</label>
+                                        <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
                                         <div class="col-sm-10">
-                                            <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="telefone" >
-                                        </div>
-                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Telefone:</label>
-                                        <div class="col-sm-10">
-                                            <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="telefone" >
+                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura...">
                                         </div>
                                     </div>
-
                                     <hr>
-
+                                    <div class="mb-3">
+                                        <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
+                                        <textarea class="form-control" id="inputtextearea" rows="3"></textarea>
+                                    </div>
+                                    <hr>
                                     <div class="mb-3 row">
-                                        <label for="inputsenha" class="col-sm-2 col-form-label">Senha atual:</label>
+                                        <label for="inputcriador" class="col-sm-2 col-form-label">
+                                            <select class="form-select" aria-label="default select example">
+                                                <option value="1">Independente</option>
+                                                <option value="2">Estúdio</option>
+                                            </select>
+                                        </label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="senha" minlength="8" placeholder="********">
-                                        </div>
-                                        <label for="inputsenha" class="col-sm-2 col-form-label">Senha:</label>
-                                        <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="senha" minlength="8" placeholder="********">
+                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games...">
                                         </div>
                                     </div>
-
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </div>
                                 </div>
-
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                     <button type="submit" class="btn btn-primary">Salvar alterações</button>
                                 </div>
-                                </div>
-                                
+                                </div>k
                             </div>
-                        </div>
                     </form>
 
                     </div>
