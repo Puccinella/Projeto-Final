@@ -13,9 +13,8 @@ const cadastro = (req, res) => {
 
     Usuario.criarUsuario(nome, telefone, email, senha);
 
-    res.send("Usuario cadastrado");
     console.log(nome, telefone, email, senha);
-    res.resdirect('/entrar');
+    res.redirect('/entrar');
 }
 
 

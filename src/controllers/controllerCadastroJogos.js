@@ -5,6 +5,7 @@ const paginaCadastroJogos = (req, res) => {
     res.render('../views/pages/cadastroJogos');
 };
 
+
 const cadastroJogos = (req, res) => {
     const titulo = req.body.title;
     const preco = req.body.price;
@@ -15,9 +16,8 @@ const cadastroJogos = (req, res) => {
 
     jogo.cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor);
 
-    res.send("Jogo cadastrado");
     console.log(titulo, preco, distribuidora, categoria, descricao, desenvolvedor);
-    res.resdirect('/cadastroJogos');
+    res.redirect('/cadastroJogos');
 };
 
 module.exports = {

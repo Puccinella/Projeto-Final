@@ -3,23 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"></head>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100vh;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: lightgray;
+            padding: 20px;
+        }
+        
+        main {
+            flex: 1;
+            align-items: center;
+            display: flex;
+        }
+        
+        footer {
+            background-color: lightgray;
+            padding: 20px;
+        }
+        .login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login > .col{
+            padding: 20px;
+            max-width: 60vw;
+            margin: 10px;
+            border: 2px solid lightgray;
+            border-radius: 5%;
+        }
+        .colbutton{
+            display: flex;
+            justify-content: end;
+        }
+        .col{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
 <body>
+
     <main>
-        <form action="/configConta/atualizar" method="post">
-            <label for="">Novo Nome</label>
-            <input type="text" name="newName" id="" placeholder="Nome">
-            <label for="">Novo Email</label>
-            <input type="email" name="newEmail" id="" placeholder="Email">
-            <label for="">Novo Telefone</label>
-            <input type="text" name="newPhone" id="" placeholder="Telefone">
-            <label for="">Nova Senha</label>
-            <input type="password" name="newPassword" id="" placeholder="Senha">
-            <button type="submit" name="acao" value="atualizar">Salvar</button> <br>
-            <button type="submit" name="acao" value="excluir">excluir conta</button>
-        </form>
+
+        <div class="container">
+            <div class="row login d-flex justify-content: center;
+            align-items: center;">
+                <div class="col shadow-lg ">
+
+                    <h1 class="mb-5">Clique no botão para alterar as informações do usuário:</h1>
+
+                    <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Editar informações do perfil
+                    </button>
+
+                    <!-- Modal do cadastro de jogos -->
+                    <form action="/cadastroJogos" method="post">
+                        <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Informações do perfil</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 row">
+                                        <div class="row mb-3">
+                                            <p>nome atual: 
+                                        </div>
+                                    </div>
+                                        <label for="inputnome" class="col-sm-2 col-form-label">Nome:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputnome" placeholder="eliaszinho" name="nome">
+                                        </div>
+
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <div class="row mb-3">
+                                            <!--email do usuario-->
+                                            <p>Email atual:</div>p>
+                                        </div>
+                                        <label for="inputemail" class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputemail" placeholder="email@gmail.com" name="email">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <div class="row mb-3">
+                                            <!--telefone do usuario-->
+                                            <p>telefone atual:</div>p>
+                                        </div>
+                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Telefone:</label>
+                                        <div class="col-sm-10">
+                                            <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="telefone" >
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="mb-3 row">
+                                        <label for="inputsenha" class="col-sm-2 col-form-label">Senha:</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="inputsenha" name="senha" minlength="8" placeholder="********">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ const jogo = sql.define("Jogos",{
         allowNull: true
     },
     desenvolvedor: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true
     }
 });
@@ -38,7 +38,22 @@ async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao,
         descricao: descricao,
         desenvolvedor: desenvolvedor
     });
-}
+};
+
+async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory, newDescription, newDeveloper) {
+    return jogo.update({
+        titulo: newTitle,
+        preco: newPrice,
+        distribuidora: newPublisher,
+        categoria: newCategory,
+        descricao: newDescription,
+        desenvolvedor: newDeveloper
+    },
+    {
+    where: {id: id}
+    })
+};
+
 
 async function excluirJogo(id) {
     return jogo.destroy({
