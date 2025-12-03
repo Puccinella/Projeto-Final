@@ -2,10 +2,12 @@ const path = require('path');
 const Usuario = require('../models/usuario.cjs');
 
 const paginaConfigConta = (req, res) => {
-    res.render('../views/pages/configConta');
+    res.render('pages/configConta', {
+        usuario: req.session
+    });
 };
 
-const alterarCadastro = (req, res) => {
+const alterarCadastro = async (req, res) => {
     const acao = req.body.acao;
     if (acao === "atualizar"){
         const novoNome = req.body.newName;
@@ -15,17 +17,19 @@ const alterarCadastro = (req, res) => {
 
         const idUsuario = req.session.idUsuario;
 
-        Usuario.editarUsuario(idUsuario, novoNome, novoEmail, novoTelefone, novaSenha);
-        res.redirect('/')
+        Usuario.editarUsuario(idUsuario, novoNome, novoTelefone, novoEmail, novaSenha);
+        req.session.nome = novoNome;
+        req.session.email = novoEmail;
+        req.session.telefone = novoTelefone;
+        res.redirect('/');
     }
-    if (acao === "excluir"){
+    else if (acao === "excluir"){
         const idUsuario = req.session.idUsuario;
         Usuario.deletarUsuario(idUsuario);
-        res.redirect('/cadastro')
+        req.session.destroy();
+        res.redirect('/cadastro');
     }
-    
-
-}
+};
 
 module.exports = {
     paginaConfigConta,
