@@ -3,7 +3,7 @@ const { Usuario } = require("../models/usuario.cjs");
 const bcrypt = require("bcrypt");
 
 const paginaEntrar = (req, res) => {
-    res.render('../views/pages/entrar');
+    res.render('pages/entrar');
 };
 
 const login = async (req, res) => {
@@ -26,6 +26,8 @@ const login = async (req, res) => {
 
         req.session.idUsuario = usuario.id;
         req.session.nome = usuario.nome;
+        req.session.email = usuario.email;
+        req.session.telefone = usuario.telefone;
 
         console.log(req.session.idUsuario, req.session.nome);
         

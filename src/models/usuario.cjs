@@ -56,8 +56,8 @@ async function editarUsuario(idUsuario ,novoNome, novoTelefone, novoEmail, novaS
     else {
         return Usuario.update({
             nome: novoNome,
-            telefone: novoTelefone,
             email: novoEmail,
+            telefone: novoTelefone,
             senha: novasenhacriptografada
         },
         {
