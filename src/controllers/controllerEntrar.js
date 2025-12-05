@@ -28,8 +28,9 @@ const login = async (req, res) => {
         req.session.nome = usuario.nome;
         req.session.email = usuario.email;
         req.session.telefone = usuario.telefone;
+        req.session.tipoUsuario = usuario.tipoUsuario;
 
-        console.log(req.session.idUsuario, req.session.nome);
+        console.log(req.session.idUsuario, req.session.nome, req.session.email, req.session.telefone, req.session.tipoUsuario);
         
         return res.redirect('/');
     } catch (err) {

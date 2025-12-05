@@ -10,10 +10,11 @@ const cadastro = (req, res) => {
     const telefone = req.body.telefone;
     const email = req.body.email;
     const senha = req.body.password;
+    const tipoUsuario = 'cliente';
 
-    Usuario.criarUsuario(nome, telefone, email, senha);
+    Usuario.criarUsuario(nome, telefone, email, senha, tipoUsuario);
 
-    console.log(nome, telefone, email, senha);
+    console.log(nome, telefone, email, senha, tipoUsuario);
     res.redirect('/entrar');
 }
 
