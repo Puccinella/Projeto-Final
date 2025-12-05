@@ -77,7 +77,6 @@
 
                     <!-- Modal do cadastro de jogos -->
                     <form action="/configConta/atualizar" method="post">
-                        <input type="hidden" name="acao" value="atualizar">
                         <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -132,7 +131,7 @@
                                     <div class="mb-3 row">
                                         <label for="inputsenha" class="col-sm-2 col-form-label">Senha atual:</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="senha" minlength="8" placeholder="********">
+                                            <input type="password" class="form-control" id="inputsenha" name="senha" minlength="8" placeholder="********" readonly>
                                         </div>
                                         <label for="inputsenha" class="col-sm-2 col-form-label">Senha:</label>
                                         <div class="col-sm-10">
@@ -144,7 +143,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                                    <button type="submit" class="btn btn-primary" name="acao" value="atualizar">Salvar alterações</button>
                                 </div>
                                 </div>
                                 

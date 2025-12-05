@@ -25,18 +25,23 @@ const Usuario = sql.define("Usuarios",{
         allowNull: true,
         unique: true
     },
+    tipoUsuario: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    }
     },
     {
     tableName: 'Usuarios'
 });
 
-async function criarUsuario(nome, telefone, email, senha) {
-    const senhacriptografada = await bcrypt.hash(senha, 10);
+async function criarUsuario(nome, telefone, email, senha, tipoUsuario) {
+    const senhacriptografada = await bcrypt.hash(senha, 10);;
     return Usuario.create({
         nome: nome,
         telefone: telefone,
         email: email,
         senha: senhacriptografada,
+        tipoUsuario: tipoUsuario
     }) 
 }
 
@@ -58,7 +63,7 @@ async function editarUsuario(idUsuario ,novoNome, novoTelefone, novoEmail, novaS
             nome: novoNome,
             email: novoEmail,
             telefone: novoTelefone,
-            senha: novasenhacriptografada
+            senha: novasenhacriptografada,
         },
         {
             where: {id: id}
@@ -79,7 +84,7 @@ async function procurarAdmin(adminEmail) {
         where: {email: adminEmail}
     });
     if (!administrador) {
-        await criarUsuario('Admin Pedro','1201234567', 'pedro@email.com', 'pedro123');
+        await criarUsuario('Admin Pedro','1201234567', 'pedro@email.com', 'pedro123', 'administrador');
     };
 }
 

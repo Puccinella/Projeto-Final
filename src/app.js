@@ -28,6 +28,7 @@ app.post('/upload-file', upload.single('file'), (req, res) => {
 const routesInicial = require('./routes/routeInicial');
 const routeCadastro = require('./routes/routeCadastro');
 const routeConfigConta = require('./routes/routeConfigConta');
+const routeConfigJogo = require('./routes/routeConfigJogo');
 const routeCadastroJogos = require('./routes/routeCadastroJogos');
 const routeCarrinho = require('./routes/routeCarrinho');
 const routePagamento = require('./routes/routePagamento');
@@ -36,6 +37,7 @@ const routeEntrar = require("./routes/routeEntrar");
 app.use('/', routesInicial);
 app.use('/', routeCadastro);
 app.use('/', routeConfigConta);
+app.use('/', routeConfigJogo);
 app.use('/', routeCadastroJogos);
 app.use('/', routeCarrinho);
 app.use('/', routePagamento);

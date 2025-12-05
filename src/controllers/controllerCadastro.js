@@ -6,17 +6,24 @@ const paginaCadastro = (req, res) => {
 };
 
 const cadastro = (req, res) => {
-    const nome = req.body.username;
-    const telefone = req.body.telefone;
-    const email = req.body.email;
     const senha = req.body.password;
+    const repetirSenha = req.body.repeatpassword;
+    if (senha === repetirSenha){
+        const nome = req.body.username;
+        const telefone = req.body.telefone;
+        const email = req.body.email;
+        
+        const tipoUsuario = 'cliente';
 
-    Usuario.criarUsuario(nome, telefone, email, senha);
+        Usuario.criarUsuario(nome, telefone, email, senha, tipoUsuario);
 
-    console.log(nome, telefone, email, senha);
-    res.redirect('/entrar');
+        console.log(nome, telefone, email, senha, tipoUsuario);
+        res.redirect('/entrar');
+    }
+    else {
+        res.send("Senhas não são iguais");
+    }
 }
-
 
 module.exports = {
     paginaCadastro,
