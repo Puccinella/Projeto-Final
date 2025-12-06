@@ -9,7 +9,8 @@ sql.sync({ force: false })
 const Usuario = sql.define("Usuarios",{
     nome: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
+        unique: true
     },
     email: {
         type: DataTypes.STRING,
