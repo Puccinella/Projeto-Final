@@ -1,9 +1,13 @@
 const path = require('path');
-const Usuario = require('../models/usuario.cjs');
+const { Usuario, editarUsuario, deletarUsuario }= require('../models/usuario.cjs');
 
 const paginaConfigConta = (req, res) => {
     res.render('pages/configConta', {
-        usuario: req.session
+        usuario: req.session,
+        mensagens: {},
+        novoNome: null,
+        novoTelefone: null,
+        novoEmail: null,
     });
 };
 
@@ -14,10 +18,46 @@ const alterarCadastro = async (req, res) => {
         const novoEmail = req.body.newEmail;
         const novoTelefone = req.body.newPhone;
         const novaSenha = req.body.newPassword;
+        const repetirnovaSenha = req.body.repeatNewPassword;
 
+        const mensagens ={
+            mensagemEmail: null,
+            mensagemNome: null,
+            mensagemTelefone: null,
+            mensagemSenha: null
+        }
+
+        const Verificaremail = await Usuario.findOne({where: {email: novoEmail} });
+        if (Verificaremail){
+            mensagens.mensagemEmail = "Email já existente";
+        }
+
+        const VerificarNome = await Usuario.findOne({where: {nome: novoNome} });
+        if (VerificarNome){
+            mensagens.mensagemNome = "Nome de usuário já existente";
+        }
+
+        const verificarTelefone = await Usuario.findOne({where: {telefone: novoTelefone} });
+        if (verificarTelefone){
+            mensagens.mensagemTelefone = "Telefone já existente";
+        }
+
+        if (novaSenha !== repetirnovaSenha){
+            mensagens.mensagemSenha = "As senhas não são iguais";
+        }
+        if (mensagens.mensagemEmail || mensagens.mensagemNome || mensagens.mensagemTelefone || mensagens.mensagemSenha){
+            return res.render('pages/configConta', {
+                usuario: req.session,
+                mensagens,
+                novoNome,
+                novoTelefone,
+                novoEmail,
+        });
+        }
+    
         const idUsuario = req.session.idUsuario;
 
-        Usuario.editarUsuario(idUsuario, novoNome, novoTelefone, novoEmail, novaSenha);
+        await editarUsuario(idUsuario, novoNome, novoTelefone, novoEmail, novaSenha);
         req.session.nome = novoNome;
         req.session.email = novoEmail;
         req.session.telefone = novoTelefone;
@@ -25,7 +65,7 @@ const alterarCadastro = async (req, res) => {
     }
     else if (acao === "excluir"){
         const idUsuario = req.session.idUsuario;
-        Usuario.deletarUsuario(idUsuario);
+        await deletarUsuario(idUsuario);
         req.session.destroy();
         res.redirect('/cadastro');
     }

@@ -26,17 +26,22 @@ const jogo = sql.define("Jogos",{
     desenvolvedor: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    imagemURL: {
+        type: DataTypes.TEXT,
+        allowNull: true
     }
 });
 
-async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor) {
+async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor, imagemURL) {
     return jogo.create({
         titulo: titulo,
         preco: preco,
         distribuidora: distribuidora,
         categoria: categoria,
         descricao: descricao,
-        desenvolvedor: desenvolvedor
+        desenvolvedor: desenvolvedor,
+        imagemURL: imagemURL
     });
 };
 
@@ -64,4 +69,6 @@ async function excluirJogo(id) {
 module.exports = {
     jogo,
     cadastrarJogo,
+    editarJogo,
+    excluirJogo
 }

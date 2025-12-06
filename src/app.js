@@ -5,25 +5,21 @@ const app = express();
 const multer = require('multer');
 const ImageKit = require('imagekit');
 const upload = multer({ dest: 'uploads/' });
-
+require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(session({
     secret: "chave-super-secreta",
     resave: false,
     saveUninitialized: false
 }));
-
-app.post('/upload-file', upload.single('file'), (req, res) => {
-  res.send('File uploaded successfully')
-})
 
 const routesInicial = require('./routes/routeInicial');
 const routeCadastro = require('./routes/routeCadastro');

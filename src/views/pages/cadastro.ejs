@@ -83,16 +83,23 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="password" name="password"  required>
+                            <input type="password" class="form-control" id="password" name="password"  minlength="8" placeholder="********" required>
                         </div>
                         <div class="mb-3">
                             <label for="repeatpassword" class="form-label">Repetir Senha</label>
-                            <input type="password" class="form-control" id="repeatpassword" name="repeatpassword" required>
+                            <input type="password" class="form-control" id="repeatpassword" name="repeatpassword" minlength="8" placeholder="********"  required>
                             <% if (mensagens.mensagemSenha) { %>
                                 <div ><%= mensagens.mensagemSenha %></div>
                             <% } %>
                         </div>
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <div class="row">
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                            <div class="col-9">
+                                <a href="/entrar">Já possui uma conta?</a>
+                            </div>
+                        </div>
                     </form>
 
                 </div>
