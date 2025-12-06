@@ -26,6 +26,10 @@ const jogo = sql.define("Jogos",{
     desenvolvedor: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    imagemURL: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 });
 
@@ -64,4 +68,6 @@ async function excluirJogo(id) {
 module.exports = {
     jogo,
     cadastrarJogo,
+    editarJogo,
+    excluirJogo
 }

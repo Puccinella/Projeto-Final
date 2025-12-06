@@ -76,7 +76,7 @@
                     </button>
 
                     <!-- Modal do cadastro de jogos -->
-                    <form action="/cadastroJogos" method="post">
+                    <form action="/cadastroJogos" method="post" enctype="multipart/form-data">
                         <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -125,7 +125,7 @@
                                     <hr>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
-                                        <input class="form-control" type="file" id="formFile">
+                                        <input class="form-control" type="file" id="formFile" accept="imagem/*" required>
                                         <button type="submit">Upload</button>
                                     </div>
                                 </div>
@@ -140,9 +140,21 @@
                     </div>
 
                 </div>
+                <!--Tentativa de botão flutuante-->
+
+                <div class="fixed-bottom">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                            <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
-        </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
