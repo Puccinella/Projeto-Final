@@ -4,6 +4,6 @@ const controllerRoutes = require('../controllers/controllerRoutes');
 const controllerConfigConta = require('../controllers/controllerConfigConta');
 
 router.get('/configConta', controllerConfigConta.paginaConfigConta);
-router.post('/configConta/atualizar', controllerRoutes.verificador_login, controllerConfigConta.alterarCadastro);
+router.post('/configConta', controllerRoutes.verificador_login, controllerConfigConta.alterarCadastro);
 
 module.exports = router;

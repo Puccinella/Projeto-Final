@@ -1,9 +1,16 @@
 const path = require('path');
-const jogo = require('../models/jogo.cjs');
+const { jogo, cadastrarJogo } = require('../models/jogo.cjs');
 const imagekit = require('../config/imagekit');
 
 const paginaCadastroJogos = (req, res) => {
-    res.render('../views/pages/cadastroJogos');
+    res.render('../views/pages/cadastroJogos', {
+        mensagens: {},
+        preco:  null,
+        distribuidora: null,
+        categoria: null,
+        descricao: null,
+        desenvolvedor: null
+    });
 };
 
 const cadastroJogos = async (req, res) => {
@@ -13,15 +20,39 @@ const cadastroJogos = async (req, res) => {
     const categoria = req.body.category;
     const descricao = req.body.description;
     const desenvolvedor = req.body.developer;
+    
+    const mensagens = {
+        mensagemTitulo: null,
+    }
 
-    const uploadImagem = await imagekit.upload({
+    const verificarNome = await jogo.findOne({ where: {titulo}});
+    if (verificarNome){
+        mensagens.mensagemTitulo = "Título de jogo já existente"
+    }
+
+    if (mensagens.mensagemTitulo){
+        return res.render('pages/cadastroJogos', {
+            mensagens,
+            preco,
+            distribuidora,
+            categoria,
+            descricao,
+            desenvolvedor
+        })
+    }
+
+    const uploadImage = await imagekit.upload({
         file: req.file.buffer.toString('base64'),
-        fileName: `${Date.now}`
+        fileName: `${Date.now()}-${req.file.originalname}`,
+        folder: '/capasJogos'
     });
 
-    jogo.cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor);
+    console.log("URL: ", uploadImage.url);
 
-    console.log(titulo, preco, distribuidora, categoria, descricao, desenvolvedor);
+    await cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor, uploadImage.url);
+
+    console.log(titulo, preco, distribuidora, categoria, descricao, desenvolvedor, uploadImage.url);
+
     res.redirect('/cadastroJogos');
 };
 
