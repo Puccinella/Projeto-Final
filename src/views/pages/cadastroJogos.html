@@ -57,6 +57,9 @@
             flex-direction: column;
             align-items: center;
         }
+        .trocacor{
+            align-items: end;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +79,7 @@
                     </button>
 
                     <!-- Modal do cadastro de jogos -->
-                    <form action="/cadastroJogos" method="post">
+                    <form action="/cadastroJogos" method="post" enctype="multipart/form-data">
                         <div class="modal-lg modal fade modal-cent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -86,62 +89,61 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3 row">
-                                        <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo:</label>
+                                        <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo: </label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays">
+                                            <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays" name="title" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura...">
+                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura..." name="category" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3">
                                         <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
-                                        <textarea class="form-control" id="inputtextearea" rows="3"></textarea>
+                                        <textarea class="form-control" id="inputtextearea" rows="3" name="description" required></textarea>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputcriador" class="col-sm-2 col-form-label">
-                                            <select class="form-select" aria-label="default select example">
-                                                <option value="1">Independente</option>
-                                                <option value="2">Estúdio</option>
+                                            <select class="form-select" aria-label="default select example" name="publisher">
+                                                <option value="Independente">Independente</option>
+                                                <option value="Estúdio">Estúdio</option>
                                             </select>
                                         </label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games...">
+                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games..." name="developer" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01">
+                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01" name="price" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
-                                        <input class="form-control" type="file" id="formFile">
+                                        <input class="form-control" type="file" id="formFile" accept="imagem/*" required>
+                                        <button type="submit">Upload</button>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                     <button type="submit" class="btn btn-primary">Salvar alterações</button>
                                 </div>
-                                </div>k
+                                </div>
                             </div>
                     </form>
 
                     </div>
 
                 </div>
-
             </div>
-        </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
