@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
         * {
@@ -48,10 +48,6 @@
             border: 2px solid lightgray;
             border-radius: 5%;
         }
-        .colbutton{
-            display: flex;
-            justify-content: end;
-        }
     </style>
 </head>
 <body>
@@ -72,17 +68,11 @@
                             <label for="password" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">
-                                    Entrar
-                                </button>
-                            </div>
-                            <div class="col colbutton">
-                                <button type="submit" class="btn btn-outline-primary">
-                                    Cadastre-se agora
-                                </button>
-                            </div>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col d-grid gap-2" style="max-width: 200px;">
+                                <a class="btn btn-outline-primary " href="/cadastro">Não possui perfil?</a>
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                            </div> 
                         </div>
                     </form>
 
