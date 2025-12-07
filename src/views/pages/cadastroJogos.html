@@ -92,43 +92,46 @@
                                         <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo: </label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays" name="title" required>
+                                            <% if (mensagens.mensagemTitulo) { %>
+                                                <div><%= mensagens.mensagemTitulo %></div>
+                                            <% } %>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura..." name="category" required>
+                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura..." name="category" value="<%= categoria %>" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3">
                                         <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
-                                        <textarea class="form-control" id="inputtextearea" rows="3" name="description" required></textarea>
+                                        <textarea class="form-control" id="inputtextearea" rows="3" name="description" value="<%= descricao %>" required></textarea>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputcriador" class="col-sm-2 col-form-label">
-                                            <select class="form-select" aria-label="default select example" name="publisher">
+                                            <select class="form-select" aria-label="default select example" name="publisher" value="<%= distribuidora %>">
                                                 <option value="Independente">Independente</option>
                                                 <option value="Estúdio">Estúdio</option>
                                             </select>
                                         </label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games..." name="developer" required>
+                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games..." name="developer" value="<%= desenvolvedor %>"required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01" name="price" required>
+                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01" name="price" value="<%= preco %>" required>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
-                                        <input class="form-control" type="file" id="formFile" accept="imagem/*" required>
+                                        <input class="form-control" type="file" id="formFile">
                                         <button type="submit">Upload</button>
                                     </div>
                                 </div>
@@ -143,7 +146,9 @@
                     </div>
 
                 </div>
+
             </div>
+        </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

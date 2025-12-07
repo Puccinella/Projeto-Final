@@ -62,17 +62,17 @@
 <body>
 
     <main>
-
+        <!-- Lucão troque toda a parte do ejs, essa é uma das mais chatas pra vc fazer serio -->
         <div class="container">
             <div class="row login d-flex justify-content: center;
             align-items: center;">
                 <div class="col shadow-lg ">
 
-                    <h1 class="mb-5">Clique no botão para alterar as informações do usuário:</h1>
+                    <h1 class="mb-5">Clique no botão para alterar as informações do seu jogo:</h1>
 
                     <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Editar informações do perfil
+                    Editar informações do jogo
                     </button>
 
                     <!-- Modal do cadastro de jogos -->
@@ -105,13 +105,13 @@
                                     <hr>
 
                                     <div class="mb-3 row">
-                                        <label for="inputemail" class="col-sm-2 col-form-label">Email atual:</label>
+                                        <label for="inputemail" class="col-sm-2 col-form-label">Gênero atual:</label>
                                         <div class="col-sm-10">
                                             <input type="email" class="form-control" id="inputemail" value="<%= usuario.email %>" readonly>
                                         </div>
-                                        <label for="inputemail" class="col-sm-2 col-form-label">Email:</label>
+                                        <label for="inputgenero" class="col-sm-2 col-form-label">Gênero:</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputemail" value="<%= novoEmail %>" name="newEmail">
+                                            <input type="text" class="form-control" id="inputgenero" placeholder="RPG, Ação, Aventura..." name="category" value="<%= categoria %>" required>
                                         </div>
                                         <% if (mensagens.mensagemEmail) { %>
                                             <div><%= mensagens.mensagemEmail %></div>
@@ -121,13 +121,14 @@
                                     <hr>
 
                                     <div class="mb-3 row">
-                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Telefone atual:</label>
+                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Descrição atual:</label>
                                         <div class="col-sm-10">
                                             <input type="tel" class="form-control" id="inputtelefone"  value="<%= usuario.telefone %>" readonly>
                                         </div>
-                                        <label for="inputtelefone" class="col-sm-2 col-form-label">Novo Telefone:</label>
+                                        <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
+                                        
                                         <div class="col-sm-10">
-                                            <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="newPhone" value="<%= novoTelefone %>">
+                                            <textarea class="form-control" id="inputtextearea" rows="3" name="description" value="<%= descricao %>" required></textarea>
                                         </div>
                                         <% if (mensagens.mensagemTelefone) { %>
                                             <div><%= mensagens.mensagemTelefone %></div>
@@ -137,16 +138,57 @@
                                     <hr>
 
                                     <div class="mb-3 row">
-                                        <label for="inputsenha" class="col-sm-2 col-form-label">Nova Senha: </label>
+                                        <label for="inputemail" class="col-sm-2 col-form-label">Criador atual:</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="newPassword" minlength="8" placeholder="********" >
+                                            <input type="email" class="form-control" id="inputemail" value="<%= usuario.email %>" readonly>
                                         </div>
-                                        <label for="inputsenha" class="col-sm-2 col-form-label">Repetir Senha:</label>
+
+                                        <label for="inputcriador" class="col-sm-2 col-form-label">
+                                            <select class="form-select" aria-label="default select example" name="publisher" value="<%= distribuidora %>">
+                                                <option value="Independente">Independente</option>
+                                                <option value="Estúdio">Estúdio</option>
+                                            </select>
+                                        </label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="repeatnewPassword" minlength="8" placeholder="********">
+                                            <input type="text" class="form-control" id="inputcriador" placeholder="Bethesda, Riot Games..." name="developer" value="<%= desenvolvedor %>"required>
                                         </div>
-                                        <% if (mensagens.mensagemSenha) { %>
-                                            <div ><%= mensagens.mensagemSenha %></div>
+                                        <% if (mensagens.mensagemEmail) { %>
+                                            <div><%= mensagens.mensagemEmail %></div>
+                                        <% } %>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="mb-3 row">
+                                        <label for="inputemail" class="col-sm-2 col-form-label">Preço atual:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputemail" value="<%= usuario.email %>" readonly>
+                                        </div>
+
+                                        <label for="inputpreco" class="col-sm-2 col-form-label">Preço:</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="inputpreco" placeholder="R$20,00" min="0" step="0.01" name="price" value="<%= preco %>" required>
+                                        </div>
+                                        <% if (mensagens.mensagemEmail) { %>
+                                            <div><%= mensagens.mensagemEmail %></div>
+                                        <% } %>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="mb-3 row">
+                                        <label for="inputemail" class="col-sm-2 col-form-label">Foto atual:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputemail" value="<%= usuario.email %>" readonly>
+                                        </div>
+
+                                        <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="file" id="formFile">
+                                        <button type="button" class="btn btn-secondary">Upload</button>
+                                        </div>
+                                        <% if (mensagens.mensagemEmail) { %>
+                                            <div><%= mensagens.mensagemEmail %></div>
                                         <% } %>
                                     </div>
 
@@ -163,7 +205,7 @@
 
                         <div style="margin-top: 20px; text-align: center;">
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                            Excluir conta
+                            Excluir jogo
                             </button>
 
                             <!-- Modal da exclusão da conta-->
@@ -172,14 +214,14 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Confirmação  de Excluir conta</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Confirmação  de excluir jogo</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h1>Tem certeza que deseja excluir sua conta? Esta ação é irreversível.</h1>
+                                            <h1>Tem certeza que deseja excluir seu jogo? Esta ação é irreversível.</h1>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-danger" name="acao" value="excluir" data-bs-toggle="modal" data-bs-target="#exampleModal3">Excluir conta</button>
+                                            <button type="submit" class="btn btn-danger" name="acao" value="excluir" data-bs-toggle="modal" data-bs-target="#exampleModal3">Excluir jogo</button>
                                         </div>
                                     </div>
                                 </div>
@@ -188,11 +230,11 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Confirmação  de Exclusão de conta</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Confirmação  de exclusão do jogo</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h1>Conta excluida com Sucesso ✅</h1>
+                                            <h1>Jogo excluido com Sucesso ✅</h1>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary">Fechar Tela</button>
