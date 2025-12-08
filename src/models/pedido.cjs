@@ -10,20 +10,14 @@ const pedido = sql.define("Pedidos",{
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    qtd_produtos: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    },
-    produtos: {
-        type: DataTypes.STRING,
-        allowNull: true,
-
-    },
     data_compra: {
         type: DataTypes.DATE,
         allowNull: true,
+    },
+    situacao: {
+        type: DataTypes.STRING,
+        defaultValue: "pendente",
     }
-
 })
 
 
