@@ -98,32 +98,42 @@
                     <div class="redondo"></div>
                 </div>
               </div>
-          <div class="col cards">
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
+          <div class="container mt-5">
+            <div class="row g-4">
+              <% jogos.forEach(jogo => { %>
+                <div class="col-md-3 d-flex">
+                  <div class="card shadow-sm flex-fill">
+
+                  
+                    <img src="<%= jogo.imagemURL %>" class="card-img-top" alt="<%= jogo.titulo %>" style="height: 200px; object-fit: cover;">
+
+                    <div class="card-body">
+                      
+                      <h5 class="card-title"><%= jogo.titulo %></h5>
+
+                      
+                      <p class="card-text fw-bold text-success">
+                        R$ <%= jogo.preco %>
+                      </p>
+
+                      
+                      <p class="card-text text-muted" style="font-size: 0.9rem;">
+                        <%= jogo.descricao.substring(0, 80) %>...
+                      </p>
+
+                      
+                      <form action="/carrinho/adicionar" method="POST">
+                        <input type="hidden" name="idJogo" value="<%= jogo.id %>">
+                        <button class="btn btn-primary w-100">Adicionar ao Carrinho</button>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
             </div>
           </div>
+
           
         </div>
         

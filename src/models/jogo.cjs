@@ -66,6 +66,10 @@ async function excluirJogo(id) {
     })
 };
 
+cadastrarJogo('Minecraft', 99.90, 'Mojang', 'Sobrevivência', 'Jogo 3D em um mundo quadrado', 'Mojang Studios', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/imgMinecraft.jpg' );
+
+cadastrarJogo('Gta V', 100, 'Rockstar', 'Ação / Aventura', 'TA V se passa em um mundo aberto — o fictício estado de San Andreas, incluindo a cidade de Los Santos e seus arredores.', 'Rockstar Games', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/gtaV.jpg');
+
 module.exports = {
     jogo,
     cadastrarJogo,

@@ -5,6 +5,8 @@ const app = express();
 const multer = require('multer');
 const ImageKit = require('imagekit');
 const upload = multer({ dest: 'uploads/' });
+const relacionarModels = require("./models/relacoes.cjs");
+relacionarModels();
 require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'views')));
