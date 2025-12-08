@@ -103,7 +103,7 @@
                       <h5 class="card-title"><%= jogo.titulo %></h5>
 
                       
-                      <p class="card-text fw-bold text-success">
+                      <p class="card-text fw-bold text-success" >
                         R$ <%= jogo.preco %>
                       </p>
 
@@ -113,8 +113,9 @@
                       </p>
 
                       
-                      <form action="/carrinho/adicionar" method="POST">
+                      <form action="/carrinho" method="POST">
                         <input type="hidden" name="idJogo" value="<%= jogo.id %>">
+                        <input type="hidden" name="PrecoJogo" value="<%= jogo.preco %>">
                         <button class="btn btn-primary w-100">Adicionar ao Carrinho</button>
                       </form>
 

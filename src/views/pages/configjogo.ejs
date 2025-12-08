@@ -41,7 +41,7 @@
                     </button>
 
                    
-                    <form action="/configJogo" method="post">
+                    <form action="/configJogo" method="post" enctype="multipart/form-data">
                         <div class="modal-lg modal fade" id="modalEditJogo" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -121,8 +121,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        
+                    </form>
+                    <form action="/configJogo" method="post">
                         <div style="margin-top:20px; text-align:center;">
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluirJogo">
                                 Excluir jogo

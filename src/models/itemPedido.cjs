@@ -16,4 +16,6 @@ const itemPedido = sql.define("ItemPedido", {
     }
 });
 
-module.exports = itemPedido;
+module.exports = {
+    itemPedido
+};

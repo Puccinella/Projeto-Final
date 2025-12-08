@@ -1,7 +1,7 @@
 const { jogo: Jogo } = require("./jogo.cjs");
-const Pedido = require("./pedido.cjs");
+const { pedido: Pedido } = require("./pedido.cjs");
 const { Usuario } = require("./usuario.cjs");
-const itemPedido = require("./itemPedido.cjs");
+const { itemPedido } = require("./itemPedido.cjs");
 
 function relacionarModels() {
     // Usuario 1:N Pedido

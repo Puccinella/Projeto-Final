@@ -1,66 +1,101 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<main>
-    <div class="container">
+    <title>Carrinho</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <%- include("../partials/header") %>
+</header>
+
+<main class="container mt-5">
+
+    <h2 class="mb-4">Seu Carrinho</h2>
+
+    <% if (itens.length === 0) { %>
+
+        <div class="alert alert-warning text-center">
+            Seu carrinho está vazio 
+        </div>
+
+    <% } else { %>
+
         <div class="row g-4">
-        <div class="col-lg-8">
-            <h3 class="mb-3">Seu carrinho</h3>
-            <div class="card bg-secondary text-light mb-3 p-3">
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <img src="../../public/media/lol.jpg" class="img-fluid rounded-pill" alt="">
-                    </div>
-                    <div class="col-6">
-                        <h5>Jogo 1</h5>
-                        <p class="mb-1 text-white-50">Estilo do jogo</p>
-                        <button class="btn btn-link text-danger p-0">Remover</button>
-                    </div>
-                    <div class="col-3 text-end">
-                        <h5>R$ preço</h5>
+
+            <% itens.forEach(item => { %>
+
+                <div class="col-md-4 d-flex">
+
+                    <div class="card shadow-sm flex-fill">
+
+                        <img src="<%= item.Jogo.imagemURL %>" 
+                             alt="<%= item.Jogo.titulo %>" 
+                             class="card-img-top">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title"><%= item.Jogo.titulo %></h5>
+
+                            <p class="text-success fw-bold">
+                                R$ <%= item.preco_unitario %>
+                            </p>
+
+                            <p class="text-muted" style="font-size: 0.9rem;">
+                                <%= item.Jogo.descricao.substring(0, 90) %>...
+                            </p>
+
+                            <form action="/carrinho/remover/<%= item.id %>" method="POST">
+                                <button class="btn btn-danger w-100">
+                                    Remover
+                                </button>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card bg-secondary text-light mb-3 p-3">
-                <div class="row g-3 align-items-center">
-                    <div class="col-3">
-                        <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="img-fluid rounded-pill" alt="">
-                    </div>
-                    <div class="col-6">
-                        <h5>Jogo 2</h5>
-                        <p class="mb-1 text-white-50">RPG</p>
-                        <button class="btn btn-link text-danger p-0">Remover</button>
-                    </div>
-                    <div class="col-3 text-end">
-                        <h5>R$ preço</h5>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="btn btn-outline-dark mt-3">Continuar comprando</a>
+
+            <% }) %>
+
         </div>
-        <div class="col-lg-4">
-            <div class="card bg-secondary text-light p-3 sticky-top">
-                <h4>Resumo</h4>
-                <div class="d-flex justify-content-between mt-3 mb-1">
-                    <span>Subtotal:</span>
-                    <strong>R$ preço</strong>
-                </div>
-                <div class="d-flex justify-content-between mt-3 mb-1">
-                    <span>Subtotal:</span>
-                    <strong>R$ preço</strong>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between fs-5 mb-3">
-                    <strong>Total:</strong>
-                    <strong>R$ preço</strong>
-                </div>
-                <button class="btn btn-success w-100 mb-2">Finalizar compra</button>
-                
-                <button class="btn btn-outline-light w-100">Continuar para o pagamento</button>
-            </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h4>Total: 
+                <span class="text-primary fw-bold">R$ <%= precoTotal %></span>
+            </h4>
+
+            <form action="/carrinho/pagar/<%= pedidoId %>" method="POST">
+                <button class="btn btn-success btn-lg">
+                    Finalizar Pagamento
+                </button>
+            </form>
+
         </div>
-        </div>
-        
-    </div>
+
+    <% } %>
+
 </main>
 
-<%- include("../partials/footer") %>
+<footer class="mt-5">
+    <%- include("../partials/footer") %>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

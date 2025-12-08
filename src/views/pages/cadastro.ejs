@@ -65,21 +65,21 @@
                             <label for="username" class="form-label">Nome de Usuário</label>
                             <input type="text" class="form-control" id="username" name="username" value="<%= nome %>" required>
                             <% if (mensagens.mensagemNome) { %>
-                                <div><%= mensagens.mensagemNome %></div>
+                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemNome %></div>
                             <% } %>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" value="<%= email %>">
                             <% if (mensagens.mensagemEmail) { %>
-                                <div><%= mensagens.mensagemEmail %></div>
+                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemEmail %></div>
                             <% } %>
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
                             <input type="tel" class="form-control" id="telefone" name="telefone" value="<%= telefone %>" required>
                             <% if (mensagens.mensagemTelefone) { %>
-                                <div><%= mensagens.mensagemTelefone %></div>
+                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemTelefone %></div>
                             <% } %>
                         </div>
                         <div class="mb-3">
@@ -90,7 +90,7 @@
                             <label for="repeatpassword" class="form-label">Repetir Senha</label>
                             <input type="password" class="form-control" id="repeatpassword" name="repeatpassword" minlength="8" placeholder="********"  required>
                             <% if (mensagens.mensagemSenha) { %>
-                                <div ><%= mensagens.mensagemSenha %></div>
+                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemSenha %></div>
                             <% } %>
                         </div>
                         

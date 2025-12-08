@@ -1,6 +1,7 @@
 const path = require('path');
 const { Op } = require('sequelize')
 const { jogo, editarJogo, excluirJogo } = require('../models/jogo.cjs')
+const imagekit = require('../config/imagekit');
 
 const paginaConfigJogo = async (req, res) => {
     const jogos = await jogo.findAll();
@@ -15,7 +16,7 @@ const paginaConfigJogo = async (req, res) => {
 const alterarJogo = async (req, res) => {
     const acao = req.body.acao;
     if (acao === "atualizar") {
-        const idJogo = req.body.idjogo;        
+        const idJogo = req.body.idJogo;        
         
         const novoTitulo = req.body.newNome;
 

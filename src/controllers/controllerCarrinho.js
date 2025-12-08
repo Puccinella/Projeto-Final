@@ -1,61 +1,87 @@
 const path = require('path');
-const Pedido = require('../models/pedido.cjs');
 const { Usuario } = require('../models/usuario.cjs');
 const {jogo: Jogo} = require('../models/jogo.cjs');
-const itemPedido = require('../models/itemPedido.cjs');
-const pedido = require('../models/pedido.cjs');
+const { itemPedido } = require('../models/itemPedido.cjs');
+const {pedido} = require('../models/pedido.cjs');
+const { adicionarItemAoCarrinho } = require('../controllers/controllerInicio');
+const { findSourceMap } = require('module');
 
-const paginaCarrinho = (req, res) => {
-    res.render('../views/pages/carrinho');
+
+const paginaCarrinho = async (req, res) => {
+    const oPedido = await pedido.findOne({
+        where:  { comprador_id: req.session.idUsuario, situacao: "pendente" },
+        include: [{
+            model: itemPedido,
+            include: [Jogo]
+        }]
+    });
+
+    let itens = [];
+    if(oPedido) { itens = oPedido.ItemPedidos };
+
+    console.log("oPedido:", oPedido);
+    console.log("itens:", itens);
+
+    res.render('../views/pages/carrinho', {
+        usuario: req.session,
+        itens,
+        precoTotal: oPedido ? oPedido.preco_total : 0,
+        pedidoId: oPedido ? oPedido.id : null
+    });
 };
 
 
-async function adicionarItem(req, res) {
-    const {jogo_id, preco_unitario} = req.body;
-    const usuario_id = req.session.idUsuario;
-    const usuario = await Usuario.findByPk(usuario_id);
+async function realizarPagamento(req, res) {
+    const {pedidoId} = req.params;
+    const oPedido = await pedido.findByPk(pedidoId, {
+    include: [{
+        model: itemPedido,
+        include: [Jogo]
+    }]
+    }); 
+    oPedido.situacao = "finalizado";
+    await oPedido.save();
 
-    if (usuario.tipoUsuario === "administrador") {
-        console.log("Administrador não pode comprar jogos");
-        return res.redirect('/');
-    } else {
-        const pedido = await Pedido.findOne({
-            where: { comprador_id: usuario_id, situacao: "pendente" }
-        });
-        if (!pedido) {
-            pedido = await Pedido.create({
-                comprador_id: usuario,
-                preco_total: 0,
-                situacao: "pendente"
-            });
-        };
-    };
-
-    const item = await itemPedido.create({
-        pedido_id: pedido.id,
-        jogo_id: jogo_id,
-        preco_unitario: preco_unitario
-    });
-
-    const listaItens = await itemPedido.findAll({
-        where: {pedido_id: pedido.id}
-    });
-
-    const precoTotal = listaItens.reduce((acumulador, valorAtual) => acumulador + valorAtual.preco_unitario, 0);
-    pedido.preco_total = precoTotal;
-    await pedido.save();
+    console.log("Pagamento realizado com sucesso! - Pedido Finalizado");
+    return res.redirect('/biblioteca');
 };
+
 
 async function removerItem(req, res) {
-    const {item_id} = req.params;
-    const item = await itemPedido.findByPk(item_id);
-    item.destroy();
+    const {itemId} = req.params;
+    const item = await itemPedido.findByPk(itemId);
+    await item.destroy();
+    const pedidoId = item.pedido_id;
+
+    const listaItens = await itemPedido.findAll({
+        where: {pedido_id: pedidoId}
+    });
     const precoTotal = listaItens.reduce((acumulador, valorAtual) => acumulador + valorAtual.preco_unitario, 0);
-    pedido.preco_total = precoTotal;
-    await pedido.save();
+
+    const oPedido = await pedido.findByPk(pedidoId, {
+    include: [{
+        model: itemPedido,
+        include: [Jogo]
+    }]
+    });
+
+    oPedido.preco_total = precoTotal;
+    await oPedido.save();
+
+    let itens = [];
+    if(oPedido) { itens = oPedido.ItemPedidos };
+
+    return res.render('../views/pages/carrinho', {
+        usuario: req.session,
+        itens,
+        precoTotal: oPedido ? oPedido.preco_total : 0,
+        pedidoId: oPedido ? oPedido.id : null
+    });
 };
 
 
 module.exports = {
-    paginaCarrinho
+    paginaCarrinho,
+    realizarPagamento,
+    removerItem
 };

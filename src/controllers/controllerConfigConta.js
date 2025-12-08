@@ -79,6 +79,10 @@ const alterarCadastro = async (req, res) => {
         req.session.destroy();
         res.redirect('/cadastro');
     }
+    else if (acao === "sair"){
+        req.session.destroy();
+        res.redirect('/entrar')
+    }
 };
 
 module.exports = {

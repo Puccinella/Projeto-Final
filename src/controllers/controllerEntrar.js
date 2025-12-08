@@ -10,7 +10,6 @@ const login = async (req, res) => {
     try {
         const email = req.body.email;
         const senha = req.body.password;
-        console.log('Login attempt for:', email);
 
         const usuario = await Usuario.findOne({ where: { email } });
         if (!usuario) {
