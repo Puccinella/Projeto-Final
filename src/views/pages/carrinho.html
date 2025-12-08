@@ -35,109 +35,114 @@
         <%- include("../partials/header") %>
     </header>
 
+
     <main class="my-4">
         <div class="container">
 
             <div class="row g-4">
 
-            <div class="col-lg-8">
+                <div class="col-lg-8">
 
-                <h3 class="mb-3">Seu carrinho</h3>
+                    <h3 class="mb-3">Seu carrinho</h3>
 
-                <div class="card bg-secondary text-light mb-3 p-3">
-                    <div class="row g-3 align-items-center">
-                        <div class="col-3">
-                            <img src="../../public/media/lol.jpg" class="img-fluid rounded-pill" alt="">
-                        </div>
-                        <div class="col-6">
-                            <h5>Jogo 1</h5>
-                            <p class="mb-1 text-white-50">Estilo do jogo</p>
-                            <button class="btn btn-link text-danger p-0">Remover</button>
-                        </div>
-                        <div class="col-3 text-end">
-                            <h5>R$ preço</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card bg-secondary text-light mb-3 p-3">
-                    <div class="row g-3 align-items-center">
-                        <div class="col-3">
-                            <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="img-fluid rounded-pill" alt="">
-                        </div>
-                        <div class="col-6">
-                            <h5>Jogo 2</h5>
-                            <p class="mb-1 text-white-50">RPG</p>
-                            <button class="btn btn-link text-danger p-0">Remover</button>
-                        </div>
-                        <div class="col-3 text-end">
-                            <h5>R$ preço</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#" class="btn btn-outline-dark mt-3">Continuar comprando</a>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="card bg-secondary text-light p-3 sticky-top">
-                    <h4>Resumo</h4>
-
-                    <div class="d-flex justify-content-between mt-3 mb-1">
-                        <span>Subtotal:</span>
-                        <strong>R$ preço</strong>
-                    </div>
-                    <div class="d-flex justify-content-between mt-3 mb-1">
-                        <span>Subtotal:</span>
-                        <strong>R$ preço</strong>
-                    </div>
-
-
-                    <hr>
-
-                    <div class="d-flex justify-content-between fs-5 mb-3">
-                        <strong>Total:</strong>
-                        <strong>R$ preço</strong>
-                    </div>
-
-                    <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar compra</button>
-                </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-
-                            <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Finalizar Compra</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="card bg-secondary text-light mb-3 p-3">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-3">
+                                <img src="../../public/media/lol.jpg" class="img-fluid rounded-pill" alt="">
                             </div>
-                            <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="col-6">
+                                <h5>Jogo 1</h5>
+                                <p class="mb-1 text-white-50">Estilo do jogo</p>
+                                <button class="btn btn-link text-danger p-0">Remover</button>
+                            </div>
+                            <div class="col-3 text-end">
+                                <h5>R$ preço</h5>
+                            </div>
+                        </div>
+                    </div>
 
-                                <h1>Deseja finalizar sua compra?</h1>
+                    <div class="card bg-secondary text-light mb-3 p-3">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-3">
+                                <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="img-fluid rounded-pill" alt="">
+                            </div>
+                            <div class="col-6">
+                                <h5>Jogo 2</h5>
+                                <p class="mb-1 text-white-50">RPG</p>
+                                <button class="btn btn-link text-danger p-0">Remover</button>
+                            </div>
+                            <div class="col-3 text-end">
+                                <h5>R$ preço</h5>
+                            </div>
+                        </div>
+                    </div>
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            NÃO
-                                        </button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="submit" class="btn btn-primary">
-                                            SIM
-                                        </button> 
+                    <a href="inicio.html" class="btn btn-outline-dark mt-3">Continuar comprando</a>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="card bg-secondary text-light p-3 sticky-top">
+                        <h4>Resumo</h4>
+
+                        <div class="d-flex justify-content-between mt-3 mb-1">
+                            <span>Subtotal:</span>
+                            <strong>R$ preço</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3 mb-1">
+                            <span>Subtotal:</span>
+                            <strong>R$ preço</strong>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between fs-5 mb-3">
+                            <strong>Total:</strong>
+                            <strong>R$ preço</strong>
+                        </div>
+
+                        <button class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar compra</button>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                                <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Finalizar Compra</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+
+                                    <h1>Deseja finalizar sua compra?</h1>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                NÃO
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="submit" class="btn btn-primary">
+                                                SIM
+                                            </button> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
-
+            
             </div>
             
+            
+
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
