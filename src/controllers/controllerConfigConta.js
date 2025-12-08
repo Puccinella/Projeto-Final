@@ -1,8 +1,9 @@
 const path = require('path');
 const { Usuario, editarUsuario, deletarUsuario }= require('../models/usuario.cjs');
+const { Op } = require('sequelize')
 
 const paginaConfigConta = (req, res) => {
-    res.render('pages/configConta', {
+    res.render('pages/configConta.ejs', {
         usuario: req.session,
         mensagens: {},
         novoNome: null,
@@ -18,7 +19,7 @@ const alterarCadastro = async (req, res) => {
         const novoEmail = req.body.newEmail;
         const novoTelefone = req.body.newPhone;
         const novaSenha = req.body.newPassword;
-        const repetirnovaSenha = req.body.repeatNewPassword;
+        const repetirnovaSenha = req.body.repeatnewPassword;
 
         const mensagens ={
             mensagemEmail: null,
@@ -27,17 +28,26 @@ const alterarCadastro = async (req, res) => {
             mensagemSenha: null
         }
 
-        const Verificaremail = await Usuario.findOne({where: {email: novoEmail} });
+        const Verificaremail = await Usuario.findOne({where: {
+            email: novoEmail,
+            id: { [Op.ne]: req.session.idUsuario },
+        } });
         if (Verificaremail){
             mensagens.mensagemEmail = "Email já existente";
         }
 
-        const VerificarNome = await Usuario.findOne({where: {nome: novoNome} });
+        const VerificarNome = await Usuario.findOne({where: {
+            nome: novoNome,
+            id: { [Op.ne]: req.session.idUsuario },
+        } });
         if (VerificarNome){
             mensagens.mensagemNome = "Nome de usuário já existente";
         }
 
-        const verificarTelefone = await Usuario.findOne({where: {telefone: novoTelefone} });
+        const verificarTelefone = await Usuario.findOne({where: {
+            telefone: novoTelefone,
+            id: { [Op.ne]: req.session.idUsuario },
+        } });
         if (verificarTelefone){
             mensagens.mensagemTelefone = "Telefone já existente";
         }

@@ -3,10 +3,13 @@ const sql = require('../config/db.cjs');
 const bcrypt = require('bcrypt');
 
 sql.sync({ force: false }) 
-  .then(() => console.log('Tabelas sincronizadas!'))
+  .then( async () => {
+    console.log('Tabelas sincronizadas!');
+    await procurarAdmin('pedro@email.com');
+  })
   .catch(err => console.error(err));
 
-const Usuario = sql.define("Usuarios",{
+const Usuario = sql.define("Usuario",{
     nome: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -32,7 +35,7 @@ const Usuario = sql.define("Usuarios",{
     }
     },
     {
-    tableName: 'Usuarios'
+    tableName: 'usuarios'
 });
 
 async function criarUsuario(nome, telefone, email, senha, tipoUsuario) {
@@ -89,7 +92,7 @@ async function procurarAdmin(adminEmail) {
     };
 }
 
-procurarAdmin('pedro@email.com');
+
 
 
 module.exports = {
