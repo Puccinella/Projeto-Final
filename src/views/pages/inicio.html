@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     
     <style>
-
         *{
           margin: 0;
           padding: 0;
@@ -22,119 +21,120 @@
         }
         main{
           display: flex;
+          flex: 2;
+        }
+        header, footer{
           flex: 1;
         }
-        .dedada{
-          background-color: lightgray;
-          border: 2px solid black;
-        }
+
     </style>
     
     <link rel="stylesheet" href="../../public/style.css">
 </head>
 <body>
-        <header>
-            <div class="container">
-                <%- include('../partials/header')  %>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <div class="container">
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-        </header>
-
-          <main>
-              <div class="container">
-
-                <div id="carouselExampleIndicators" class="carousel slide">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="../../public/media/lol.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="../../public/media/rdr2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-
-                <div class="dedada">
-
-                  <div class="row mt-3">
-                          <div class="col cold">
-                              <div class="redondo"></div>
-                          </div>
-                          <div class="col cold">
-                              <div class="redondo">
-                              </div>
-                          </div>
-                          <div class="col cold">
-                              <div class="redondo"></div>
-                          </div>
-                  </div>
-                  <div class="row mt-3">
-                          <div class="col cold">
-                              <div class="redondo"></div>
-                          </div>
-                          <div class="col cold">
-                              <div class="redondo"></div>
-                          </div>
-                          <div class="col cold">
-                              <div class="redondo"></div>
-                          </div>
-                  </div>
-                  
-                  <div class="col cards cold">
-                    <div class="card cold" style="width: 13rem;">
-                      <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p>jogos</p>
-                      </div>
-                    </div>
-                    <div class="card cold" style="width: 13rem;">
-                      <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p>jogos</p>
-                      </div>
-                    </div>
-                    <div class="card cold" style="width: 13rem;">
-                      <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p>jogos</p>
-                      </div>
-                    </div>
-                    <div class="card cold" style="width: 13rem;">
-                      <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p>jogos</p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../public/media/lol.jpg" class="d-block w-100" alt="...">
               </div>
-          </main>
-
+              <div class="carousel-item">
+                <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../public/media/rdr2.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+              <div class="row mt-3">
+                  <div class="col cold">
+                      <div class="redondo"></div>
+                  </div>
+                  <div class="col cold">
+                      <div class="redondo">
+                      </div>
+                  </div>
+                  <div class="col cold">
+                      <div class="redondo"></div>
+                  </div>
+              </div>
+              <div class="row mt-3">
+                  <div class="col cold">
+                      <div class="redondo"></div>
+                  </div>
+                  <div class="col cold">
+                      <div class="redondo"></div>
+                  </div>
+                  <div class="col cold">
+                      <div class="redondo"></div>
+                  </div>
+              </div>
+              <div class="row mt-3">
+                  <div class="col cold">
+                      <div class="redondo">
+                  </div>
+              </div>
+                <div class="col cold">
+                    <div class="redondo"></div>
+                </div>
+                <div class="col cold">
+                    <div class="redondo"></div>
+                </div>
+              </div>
+          <div class="col cards">
+            <div class="card cold" style="width: 13rem;">
+              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
+              <div class="card-body">
+                <p>jogos</p>
+              </div>
+            </div>
+            <div class="card cold" style="width: 13rem;">
+              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
+              <div class="card-body">
+                <p>jogos</p>
+              </div>
+            </div>
+            <div class="card cold" style="width: 13rem;">
+              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
+              <div class="card-body">
+                <p>jogos</p>
+              </div>
+            </div>
+            <div class="card cold" style="width: 13rem;">
+              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
+              <div class="card-body">
+                <p>jogos</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    </main>
     </body>
 
     <footer>
-        <div class="container">
-          <%- include('../partials/header')  %>
-        </div>
+      <%- include("../partials/footer") %>
     </footer>
 
 </html>
+
