@@ -1,13 +1,16 @@
 const path = require('path');
-const jogo = require('../models/jogo.cjs');
+const { jogo, editarJogo, excluirJogo } = require('../models/jogo.cjs')
 
-const paginaConfigJogo = (req, res) => {
-    res.render('../views/pages/configJogo');
+const paginaConfigJogo = async (req, res) => {
+    const jogos = await jogo.findAll();
+    res.render('../views/pages/configJogo', {
+        jogos
+    });
 };
 
 
 
-const alterarJogo = (req, res) => {
+const alterarJogo = async (req, res) => {
     const acao = req.body.acao;
     if (acao === "atualizar") {
         const novoTitulo = req.body.newTitle;
@@ -17,12 +20,12 @@ const alterarJogo = (req, res) => {
         const novaDescricao = req.body.newDescription;
         const novoDesenvolvedor = req.body.newDeveloper;
 
-        jogo.alterarJogo(novoTitulo, novoPreco, novaDistribuidora, novaCategoria, novaDescricao, novoDesenvolvedor);
+        await editarJogo(novoTitulo, novoPreco, novaDistribuidora, novaCategoria, novaDescricao, novoDesenvolvedor);
 
     }
     if (acao === "excluir") {
         const idJogo = req.session.idJogo;
-        jogo.excluirJogo(idJogo);
+        await excluirJogo(idJogo);
         res.redirect('/')
     }
 }

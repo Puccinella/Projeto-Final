@@ -1,6 +1,17 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sql = require('../config/db.cjs');
 
+sql.sync({ force: false }) 
+  .then( async () => {
+    console.log('Tabelas sincronizadas!');
+
+    await cadastrarJogo('Minecraft', 99.90, 'Mojang', 'Sobrevivência', 'Jogo 3D em um mundo quadrado', 'Mojang Studios', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/imgMinecraft.jpg' );
+
+    await cadastrarJogo('Gta V', 100, 'Rockstar', 'Ação / Aventura', 'TA V se passa em um mundo aberto — o fictício estado de San Andreas, incluindo a cidade de Los Santos e seus arredores.', 'Rockstar Games', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/gtaV.jpg');
+  })
+
+  .catch(err => console.error(err));
+
 const jogo = sql.define("Jogos",{
     titulo: {
         type: DataTypes.STRING,
@@ -45,14 +56,15 @@ async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao,
     });
 };
 
-async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory, newDescription, newDeveloper) {
+async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory, newDescription, newDeveloper, imagemURL) {
     return jogo.update({
         titulo: newTitle,
         preco: newPrice,
         distribuidora: newPublisher,
         categoria: newCategory,
         descricao: newDescription,
-        desenvolvedor: newDeveloper
+        desenvolvedor: newDeveloper,
+        imagemURL: imagemURL
     },
     {
     where: {id: id}
@@ -66,9 +78,6 @@ async function excluirJogo(id) {
     })
 };
 
-cadastrarJogo('Minecraft', 99.90, 'Mojang', 'Sobrevivência', 'Jogo 3D em um mundo quadrado', 'Mojang Studios', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/imgMinecraft.jpg' );
-
-cadastrarJogo('Gta V', 100, 'Rockstar', 'Ação / Aventura', 'TA V se passa em um mundo aberto — o fictício estado de San Andreas, incluindo a cidade de Los Santos e seus arredores.', 'Rockstar Games', 'https://ik.imagekit.io/pp8w8qiza/capasJogos/gtaV.jpg');
 
 module.exports = {
     jogo,
