@@ -1,6 +1,6 @@
-const Jogo = require("./jogo.cjs");
+const { jogo: Jogo } = require("./jogo.cjs");
 const Pedido = require("./pedido.cjs");
-const Usuario = require("./usuario.cjs");
+const { Usuario } = require("./usuario.cjs");
 const itemPedido = require("./itemPedido.cjs");
 
 function relacionarModels() {
@@ -9,12 +9,12 @@ function relacionarModels() {
     Pedido.belongsTo(Usuario, { foreignKey: 'comprador_id' });
 
     // Pedido 1:N PedidoItem
-    Pedido.hasMany(PedidoItem, { foreignKey: 'pedido_id' });
-    PedidoItem.belongsTo(Pedido, { foreignKey: 'pedido_id' });
+    Pedido.hasMany(itemPedido, { foreignKey: 'pedido_id' });
+    itemPedido.belongsTo(Pedido, { foreignKey: 'pedido_id' });
 
     // Jogo 1:N PedidoItem
-    Jogo.hasMany(PedidoItem, { foreignKey: 'jogo_id' });
-    PedidoItem.belongsTo(Jogo, { foreignKey: 'jogo_id' });
+    Jogo.hasMany(itemPedido, { foreignKey: 'jogo_id' });
+    itemPedido.belongsTo(Jogo, { foreignKey: 'jogo_id' });
 };
 
 module.exports = relacionarModels;

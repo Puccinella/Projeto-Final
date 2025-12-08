@@ -21,7 +21,4 @@ const pedido = sql.define("Pedidos",{
 })
 
 
-module.exports = {
-    pedido,
-    cadastrarPedido,
-}
+module.exports = pedido;
