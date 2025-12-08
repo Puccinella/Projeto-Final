@@ -27,17 +27,6 @@ const pedido = sql.define("Pedidos",{
 })
 
 
-function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data_compra) {
-    return pedido.create({
-        comprador_id: comprador_id,
-        preco_total: preco_total,
-        qtd_produtos: qtd_produtos,
-        produtos: produtos,
-        data_compra: data_compra
-    });
-}
-
-
 module.exports = {
     pedido,
     cadastrarPedido,
