@@ -25,20 +25,7 @@ const pedido = sql.define("Pedidos",{
     }
 
 })
-pedido.sync().then(() => {
-    console.log('Tabela Pedidos criada com sucesso!');
-    return pedido.create({
-        comprador_id: 1,
-        preco_total: 259.98,
-        qtd_produtos: 2,
-        produtos: 'GTA V, The Witcher 3',
-        data_compra: new Date(2025, 5, 15)
-    });
-}).then(novoPedido => {
-    console.log('pedido criado com sucesso');
-}).catch(erro => {
-    console.error('Erro:', erro);
-});
+
 
 function cadastrarPedido(comprador_id, preco_total, qtd_produtos, produtos, data_compra) {
     return pedido.create({
