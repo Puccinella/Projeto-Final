@@ -47,7 +47,8 @@ const cadastroJogos = async (req, res) => {
         folder: '/capasJogos'
     });
 
-    console.log("URL: ", uploadImage.url);
+    const idArquivo = uploadImage.fileId;
+    console.log("fileId: ", idArquivo);
 
     await cadastrarJogo(titulo, preco, distribuidora, categoria, descricao, desenvolvedor, uploadImage.url);
 

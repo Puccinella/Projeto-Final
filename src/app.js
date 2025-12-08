@@ -6,6 +6,7 @@ const multer = require('multer');
 const ImageKit = require('imagekit');
 const upload = multer({ dest: 'uploads/' });
 const relacionarModels = require("./models/relacoes.cjs");
+
 relacionarModels();
 require('dotenv').config();
 
@@ -31,6 +32,7 @@ const routeCadastroJogos = require('./routes/routeCadastroJogos');
 const routeCarrinho = require('./routes/routeCarrinho');
 const routePagamento = require('./routes/routePagamento');
 const routeEntrar = require("./routes/routeEntrar");
+const routeBiblioteca = require("./routes/routeBiblioteca");
 
 app.use('/', routesInicial);
 app.use('/', routeCadastro);
@@ -40,5 +42,6 @@ app.use('/', routeCadastroJogos);
 app.use('/', routeCarrinho);
 app.use('/', routePagamento);
 app.use('/', routeEntrar);
+app.use('/', routeBiblioteca);
 
 module.exports = { app };

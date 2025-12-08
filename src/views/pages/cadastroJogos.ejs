@@ -73,6 +73,9 @@
 
                     <h1 class="mb-5">Clique no botão para cadastrar seu jogo:</h1>
 
+                    <% if (mensagens.mensagemTitulo) { %>
+                        <div class="alert alert-danger text-center fw-bold">Erro: <%= mensagens.mensagemTitulo %></div>
+                    <% } %>
                     <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Cadastrar Jogo
@@ -92,9 +95,6 @@
                                         <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo: </label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays" name="title" required>
-                                            <% if (mensagens.mensagemTitulo) { %>
-                                                <div><%= mensagens.mensagemTitulo %></div>
-                                            <% } %>
                                         </div>
                                     </div>
                                     <hr>

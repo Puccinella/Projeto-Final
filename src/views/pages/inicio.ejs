@@ -72,6 +72,23 @@
                     <div class="redondo"></div>
                 </div>
               </div>
+          
+          <div class="container mt-4">
+              <h3>Filtrar por categoria</h3>
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                  <a href="/categoria/Ação" class="btn btn-outline-primary">Ação</a>
+                  <a href="/categoria/Aventura" class="btn btn-outline-primary">Aventura</a>
+                  <a href="/categoria/Sobrevivência" class="btn btn-outline-primary">Sobrevivência</a>
+                  <a href="/categoria/RPG" class="btn btn-outline-primary">RPG</a>
+                  <a href="/categoria/Terror" class="btn btn-outline-primary">Terror</a>
+                  <a href="/categoria/Indie" class="btn btn-outline-primary">Indie</a>
+                  <a href="/categoria/Plataforma" class="btn btn-outline-primary">Plataforma</a>
+                  <a href="/categoria/Simulador" class="btn btn-outline-primary">Simulador</a>
+                  <a href="/" class="btn btn-secondary">Mostrar Todos</a>
+              </div>
+          </div>    
+
           <div class="container mt-5">
             <div class="row g-4">
               <% jogos.forEach(jogo => { %>
@@ -92,7 +109,7 @@
 
                       
                       <p class="card-text text-muted" style="font-size: 0.9rem;">
-                        <%= jogo.descricao.substring(0, 80) %>...
+                        <%= jogo.descricao.substring(0, 100) %>...
                       </p>
 
                       

@@ -10,10 +10,6 @@ const pedido = sql.define("Pedidos",{
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    data_compra: {
-        type: DataTypes.DATE,
-        allowNull: true,
-    },
     situacao: {
         type: DataTypes.STRING,
         defaultValue: "pendente",

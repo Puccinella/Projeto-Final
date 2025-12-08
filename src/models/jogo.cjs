@@ -56,7 +56,7 @@ async function cadastrarJogo(titulo, preco, distribuidora, categoria, descricao,
     });
 };
 
-async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory, newDescription, newDeveloper, imagemURL) {
+async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory, newDescription, newDeveloper, newImageURL) {
     return jogo.update({
         titulo: newTitle,
         preco: newPrice,
@@ -64,10 +64,10 @@ async function editarJogo(idJogo, newTitle, newPrice, newPublisher, newCategory,
         categoria: newCategory,
         descricao: newDescription,
         desenvolvedor: newDeveloper,
-        imagemURL: imagemURL
+        imagemURL: newImageURL
     },
     {
-    where: {id: id}
+    where: {id: idJogo}
     })
 };
 
