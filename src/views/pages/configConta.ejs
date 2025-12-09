@@ -69,6 +69,18 @@
                 <div class="col shadow-lg ">
 
                     <h1 class="mb-5">Clique no botão para alterar as informações do usuário:</h1>
+                    <% if (mensagens.mensagemNome) { %>
+                        <div class="alert alert-danger text-center fw-bold" style="font-size: 0.85rem;">Erro: <%= mensagens.mensagemNome %></div>
+                    <% } %>
+                    <% if (mensagens.mensagemEmail) { %>
+                        <div class="alert alert-danger text-center fw-bold" style="font-size: 0.85rem;">Erro: <%= mensagens.mensagemEmail %></div>
+                    <% } %>
+                    <% if (mensagens.mensagemTelefone) { %>
+                        <div class="alert alert-danger text-center fw-bold" style="font-size: 0.85rem;">Erro: <%= mensagens.mensagemTelefone %></div>
+                    <% } %>
+                    <% if (mensagens.mensagemSenha) { %>
+                        <div class="alert alert-danger text-center fw-bold" style="font-size: 0.85rem;">Erro: <%= mensagens.mensagemSenha %></div>
+                    <% } %>
 
                     <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -97,9 +109,6 @@
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="inputnome" value="<%= novoNome %>" name="newName">
                                             </div>
-                                            <% if (mensagens.mensagemNome) { %>
-                                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemNome %></div>
-                                            <% } %>
                                         </div>
                                         
                                     <hr>
@@ -113,9 +122,6 @@
                                         <div class="col-sm-10">
                                             <input type="email" class="form-control" id="inputemail" value="<%= novoEmail %>" name="newEmail">
                                         </div>
-                                        <% if (mensagens.mensagemEmail) { %>
-                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemEmail %></div>
-                                        <% } %>
                                     </div>
 
                                     <hr>
@@ -129,9 +135,6 @@
                                         <div class="col-sm-10">
                                             <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="newPhone" value="<%= novoTelefone %>">
                                         </div>
-                                        <% if (mensagens.mensagemTelefone) { %>
-                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemTelefone %></div>
-                                        <% } %>
                                     </div>
 
                                     <hr>
@@ -145,9 +148,6 @@
                                         <div class="col-sm-10">
                                             <input type="password" class="form-control" id="inputsenha2" name="repeatnewPassword" minlength="8" placeholder="********">
                                         </div>
-                                        <% if (mensagens.mensagemSenha) { %>
-                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemSenha %></div>
-                                        <% } %>
                                     </div>
 
                                 </div>
