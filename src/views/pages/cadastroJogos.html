@@ -73,6 +73,9 @@
 
                     <h1 class="mb-5">Clique no botão para cadastrar seu jogo:</h1>
 
+                    <% if (mensagens.mensagemTitulo) { %>
+                        <div class="alert alert-danger text-center fw-bold">Erro: <%= mensagens.mensagemTitulo %></div>
+                    <% } %>
                     <!-- Butão do modal (sempre copiar esse kkkkkkk) -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Cadastrar Jogo
@@ -92,9 +95,6 @@
                                         <label for="inputnome" class="col-sm-2 col-form-label">Nome do jogo: </label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputnome" placeholder="Rogerinho gameplays" name="title" required>
-                                            <% if (mensagens.mensagemTitulo) { %>
-                                                <div><%= mensagens.mensagemTitulo %></div>
-                                            <% } %>
                                         </div>
                                     </div>
                                     <hr>
@@ -107,14 +107,14 @@
                                     <hr>
                                     <div class="mb-3">
                                         <label for="inputtextarea" class="form-label">Descrição do jogo:</label>
-                                        <textarea class="form-control" id="inputtextearea" rows="3" name="description" value="<%= descricao %>" required></textarea>
+                                        <textarea class="form-control" id="inputtextearea" rows="3" name="description" required><%= descricao %></textarea>
                                     </div>
                                     <hr>
                                     <div class="mb-3 row">
                                         <label for="inputcriador" class="col-sm-2 col-form-label">
-                                            <select class="form-select" aria-label="default select example" name="publisher" value="<%= distribuidora %>">
-                                                <option value="Independente">Independente</option>
-                                                <option value="Estúdio">Estúdio</option>
+                                            <select class="form-select" aria-label="default select example" name="publisher" >
+                                                <option value="Independente" <%= distribuidora === "Independente" ? "selected" : "" %>>Independente</option>
+                                                <option value="Estúdio" <%= distribuidora === "Estúdio" ? "selected" : "" %>>Estúdio</option>
                                             </select>
                                         </label>
                                         <div class="col-sm-10">
@@ -131,8 +131,7 @@
                                     <hr>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Coloque uma foto do seu jogo:</label>
-                                        <input class="form-control" type="file" id="formFile">
-                                        <button type="submit">Upload</button>
+                                        <input class="form-control" type="file" id="formFile" name="imagem" accept="image/*" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

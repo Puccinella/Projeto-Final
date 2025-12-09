@@ -98,7 +98,7 @@
                                                 <input type="text" class="form-control" id="inputnome" value="<%= novoNome %>" name="newName">
                                             </div>
                                             <% if (mensagens.mensagemNome) { %>
-                                                <div><%= mensagens.mensagemNome %></div>
+                                                <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemNome %></div>
                                             <% } %>
                                         </div>
                                         
@@ -114,7 +114,7 @@
                                             <input type="email" class="form-control" id="inputemail" value="<%= novoEmail %>" name="newEmail">
                                         </div>
                                         <% if (mensagens.mensagemEmail) { %>
-                                            <div><%= mensagens.mensagemEmail %></div>
+                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemEmail %></div>
                                         <% } %>
                                     </div>
 
@@ -130,7 +130,7 @@
                                             <input type="tel" class="form-control" id="inputtelefone" placeholder="**-*****-****" name="newPhone" value="<%= novoTelefone %>">
                                         </div>
                                         <% if (mensagens.mensagemTelefone) { %>
-                                            <div><%= mensagens.mensagemTelefone %></div>
+                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemTelefone %></div>
                                         <% } %>
                                     </div>
 
@@ -143,10 +143,10 @@
                                         </div>
                                         <label for="inputsenha" class="col-sm-2 col-form-label">Repetir Senha:</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputsenha" name="repeatnewPassword" minlength="8" placeholder="********">
+                                            <input type="password" class="form-control" id="inputsenha2" name="repeatnewPassword" minlength="8" placeholder="********">
                                         </div>
                                         <% if (mensagens.mensagemSenha) { %>
-                                            <div ><%= mensagens.mensagemSenha %></div>
+                                            <div class="form-text text-danger" style="font-size: 0.85rem;"><%= mensagens.mensagemSenha %></div>
                                         <% } %>
                                     </div>
 
@@ -192,19 +192,20 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h1>
-                                                Conta excluida com Sucesso ✅
-                                            </h1>
+                                            <h1>Conta excluida com Sucesso ✅</h1>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">
-                                                Fechar Tela
-                                            </button>
+                                            <button type="button" class="btn btn-primary">Fechar Tela</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </form>
+                    <form action="/configConta" method="post">
+                        <button type="submit" class="btn btn-warning mt-3" name="acao" value="sair">
+                            Sair da conta
+                        </button>
                     </form>
                     </div>
 

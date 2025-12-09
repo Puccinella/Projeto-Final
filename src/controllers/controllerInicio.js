@@ -33,7 +33,7 @@ const filtrarPorCategoria = async (req, res) => {
 
 
 async function adicionarItemAoCarrinho(req, res) {
-    const jogo_id = req.body.idJogo; 
+    const Jogo_ID = Number(req.body.idJogo);
     const preco_unitario = Number(req.body.PrecoJogo);
     const usuario_id = req.session.idUsuario;
     const usuario = await Usuario.findByPk(usuario_id);
@@ -45,7 +45,7 @@ async function adicionarItemAoCarrinho(req, res) {
     };
 
     
-    const pedidos = await pedido.findAll({
+    const pedidosFinalizados = await pedido.findAll({
         where: {
             comprador_id: usuario_id,
             situacao: "finalizado"
@@ -60,31 +60,39 @@ async function adicionarItemAoCarrinho(req, res) {
 
     const jogosComprados = [];
 
-    pedidos.forEach(p => {
+    pedidosFinalizados.forEach(p => {
         p.ItemPedidos.forEach(item => {
-            jogosComprados.push(item.Jogo);
+            jogosComprados.push(item.Jogo.jogo_id);
         });
     });
 
-
-    const verificador = 
+    if (jogosComprados.includes(Jogo_ID)) {
+        console.log("Você já possui esse jogo");
+        return res.redirect('/'); 
+    }
 
     let pedidoAtual = await pedido.findOne({
-        where: { comprador_id: usuario_id, situacao: "pendente" }
+        where: { comprador_id: usuario_id, situacao: "pendente" },
+        include: [{ model: itemPedido }]
     });
+
     if (!pedidoAtual) {
         pedidoAtual = await pedido.create({
             comprador_id: usuario.id,
             preco_total: 0,
             situacao: "pendente"
         });
+    } else {
+        const jogoNoCarrinho = pedidoAtual.ItemPedidos.some(item => item.jogo_id === Jogo_ID);
+        if (jogoNoCarrinho) {
+            console.log("O jogo já está no carrinho");
+            return res.redirect('/carrinho');
+        }
     };
-
-
 
     await itemPedido.create({
         pedido_id: pedidoAtual.id,
-        jogo_id: jogo_id,
+        jogo_id: Jogo_ID,
         preco_unitario: preco_unitario
     });
 

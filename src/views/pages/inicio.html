@@ -37,32 +37,6 @@
     </header>
     <main>
         <div class="container">
-          <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../../public/media/lol.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../public/media/Clair-Obscur-Expedition-33.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../../public/media/rdr2.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
               <div class="row mt-3">
                   <div class="col cold">
                       <div class="redondo"></div>
@@ -98,32 +72,60 @@
                     <div class="redondo"></div>
                 </div>
               </div>
-          <div class="col cards">
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
+          
+          <div class="container mt-4">
+              <h3>Filtrar por categoria</h3>
+
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                  <a href="/categoria/Ação" class="btn btn-outline-primary">Ação</a>
+                  <a href="/categoria/Aventura" class="btn btn-outline-primary">Aventura</a>
+                  <a href="/categoria/Sobrevivência" class="btn btn-outline-primary">Sobrevivência</a>
+                  <a href="/categoria/RPG" class="btn btn-outline-primary">RPG</a>
+                  <a href="/categoria/Terror" class="btn btn-outline-primary">Terror</a>
+                  <a href="/categoria/Indie" class="btn btn-outline-primary">Indie</a>
+                  <a href="/categoria/Plataforma" class="btn btn-outline-primary">Plataforma</a>
+                  <a href="/categoria/Simulador" class="btn btn-outline-primary">Simulador</a>
+                  <a href="/" class="btn btn-secondary">Mostrar Todos</a>
               </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
-            </div>
-            <div class="card cold" style="width: 13rem;">
-              <img class="card-img-top" src="../../public/media/R.png" alt="Card image cap">
-              <div class="card-body">
-                <p>jogos</p>
-              </div>
+          </div>    
+
+          <div class="container mt-5">
+            <div class="row g-4">
+              <% jogos.forEach(jogo => { %>
+                <div class="col-md-3 d-flex">
+                  <div class="card shadow-sm flex-fill">
+
+                  
+                    <img src="<%= jogo.imagemURL %>" class="card-img-top img-fluid rounded" alt="<%= jogo.titulo %>" style="height: 200px; object-fit: cover;">
+
+                    <div class="card-body">
+                      
+                      <h5 class="card-title"><%= jogo.titulo %></h5>
+
+                      
+                      <p class="card-text fw-bold text-success" >
+                        R$ <%= jogo.preco %>
+                      </p>
+
+                      
+                      <p class="card-text text-muted" style="font-size: 0.9rem;">
+                        <%= jogo.descricao.substring(0, 100) %>...
+                      </p>
+
+                      
+                      <form action="/carrinho" method="POST">
+                        <input type="hidden" name="idJogo" value="<%= jogo.id %>">
+                        <input type="hidden" name="PrecoJogo" value="<%= jogo.preco %>">
+                        <button class="btn btn-primary w-100">Adicionar ao Carrinho</button>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              <% }) %>
             </div>
           </div>
+
           
         </div>
         
@@ -137,4 +139,3 @@
     </footer>
 
 </html>
-
