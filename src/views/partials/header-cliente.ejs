@@ -10,26 +10,78 @@
     <title>Document</title>
     <style>
 
-        #trocacor {
-            display: none;
+        /* tema claro */
+
+        :root {
+            --bg: #F4F5FF;
+            --bg-segundo: #FFFFFF;
+            --text: #1A1A2E;
+            --primary: #6C63FF;
+            --secondary: #00D4FF;
+            --border: #D3D3E8;
         }
 
-        #trocacor:checked ~ .container {
-            background-color: black;
-            color: white;
+        /* tema escuro */
+        #trocacor:checked ~ * {
+            --bg: #0A0A0F;
+            --bg-segundo: #13131A;
+            --text: #E4E4FF;
+            --primary: #6C63FF;
+            --secondary: #00D4FF;
+            --border: #2A2A3A;
+        }
+
+        /* os q vao mudar */
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        .navbar, header, .bg-body-tertiary {
+            background-color: var(--bg-segundo) !important;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar a,
+        .nav-link,
+        .navbar-brand {
+            color: var(--text) !important;
+        }
+
+        .container, .col, .card, main, footer {
+            background-color: var(--bg-segundo) !important;
+            color: var(--text);
+            border-color: var(--border) !important;
+        }
+
+        input.form-control,
+        textarea,
+        select {
+            background-color: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
     </style>
 </head>
 <body>
 
-    <input type="checkbox" name="trocacor" id="trocacor" >
-
     <div class="container">
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">STEAM</a>
+                    <a class="navbar-brand" href="#">PANTHEON</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

@@ -7,6 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+
+        #trocacor{
+            display: none;
+        }
+
         *{ margin:0; padding:0; box-sizing:border-box; }
         body{ display:flex; flex-direction:column; height:100vh; }
         header{ background-color:lightgray; padding:20px; }
@@ -21,6 +26,10 @@
     </style>
 </head>
 <body>
+
+    <input type="checkbox" name="trocacor" id="trocacor" >
+
+    <%- include("../partials/header") %>
 
     <main>
 
@@ -40,7 +49,6 @@
                         Editar Jogo
                     </button>
 
-                   
                     <form action="/configJogo" method="post" enctype="multipart/form-data">
                         <div class="modal-lg modal fade" id="modalEditJogo" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
