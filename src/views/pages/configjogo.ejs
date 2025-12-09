@@ -12,22 +12,49 @@
             display: none;
         }
 
-        *{ margin:0; padding:0; box-sizing:border-box; }
-        body{ display:flex; flex-direction:column; height:100vh; }
-        header{ background-color:lightgray; padding:20px; }
-        main{ flex:1; display:flex; align-items:center; }
-        footer{ background-color:lightgray; padding:20px; }
-        .login{ display:flex; justify-content:center; align-items:center; }
+        *{ margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{ display:flex;
+            flex-direction:column;
+            height:100vh;
+        }
+        header{ background-color:lightgray;
+            padding:20px;
+        }
+        main{ flex:1;
+            display:flex;
+            align-items:center;
+        }
+        footer{ background-color:lightgray;
+            padding:20px;
+        }
+        .login{ display:flex;
+            justify-content:center;
+            align-items:center;
+        }
         .login > .col{
             padding:20px; max-width:60vw; margin:10px;
             border:2px solid lightgray; border-radius:5%;
         }
-        .col{ display:flex; flex-direction:column; align-items:center; }
+        .col{ 
+            display:flex; 
+            flex-direction:column; 
+            align-items:center; 
+        }
+
+        header, footer{
+            flex: 1;
+            width: 100%;
+        }
+        
     </style>
 </head>
+<input type="checkbox" name="trocacor" id="trocacor" >
 <body>
 
-    <input type="checkbox" name="trocacor" id="trocacor" >
+
 
     <%- include("../partials/header") %>
 
@@ -179,6 +206,10 @@
         </div>
 
     </main>
+
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 

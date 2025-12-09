@@ -22,6 +22,7 @@
         }
 
         /* tema escuro */
+        #trocacor:checked ~ body,
         #trocacor:checked ~ * {
             --bg: #0A0A0F;
             --bg-segundo: #13131A;
@@ -94,9 +95,11 @@
                                 </a>
                             </li>
 
-                            <label for="trocacor" class="btn btn-outline-dark">
-                                troca cor
-                            </label>
+                            <li class="nav-item">
+                                <label for="trocacor" class="btn btn-outline-dark">
+                                    troca cor
+                                </label>
+                            </li>
 
                             <% if (usuario && usuario.tipoUsuario === "cliente") { %>
                                 <li class="nav-item">

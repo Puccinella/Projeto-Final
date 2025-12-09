@@ -53,13 +53,18 @@
             border: 2px solid lightgray;
             border-radius: 5%;
         }
+        header, footer{
+            flex: 1;
+            width: 100%;
+        }
     </style>
 </head>
+    <input type="checkbox" name="trocacor" id="trocacor" >
 <body>
 
-    <input type="checkbox" name="trocacor" id="trocacor" >
-
-    <%- include("../partials/header-cliente") %>
+    <header>
+        <%- include("../partials/header-cliente") %>
+    </header>
 
     <main>
 
@@ -91,5 +96,8 @@
 
     </main>
 
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
 </body>
 </html>

@@ -9,7 +9,8 @@ const paginaCadastroJogos = (req, res) => {
         distribuidora: null,
         categoria: null,
         descricao: null,
-        desenvolvedor: null
+        desenvolvedor: null,
+        usuario: req.session
     });
 };
 
@@ -37,7 +38,8 @@ const cadastroJogos = async (req, res) => {
             distribuidora,
             categoria,
             descricao,
-            desenvolvedor
+            desenvolvedor,
+            usuario: req.session
         })
     }
 

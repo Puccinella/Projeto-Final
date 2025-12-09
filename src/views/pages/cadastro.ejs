@@ -69,8 +69,15 @@
             border: 2px solid lightgray;
             border-radius: 5%;
         }
+
+        header, footer{
+            flex: 1;
+            width: 100%;
+        }
+
     </style>
 </head>
+
 <body>
     
     <input type="checkbox" name="trocacor" id="trocacor" >
@@ -136,5 +143,9 @@
 
     </main>
 
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+    
 </body>
 </html>

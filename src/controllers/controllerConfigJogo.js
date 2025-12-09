@@ -7,7 +7,8 @@ const paginaConfigJogo = async (req, res) => {
     const jogos = await jogo.findAll();
     res.render('../views/pages/configJogo', {
         jogos,
-        mensagem: null
+        mensagem: null,
+        usuario: req.session
     });
 };
 
@@ -29,7 +30,8 @@ const alterarJogo = async (req, res) => {
             const jogos = await jogo.findAll();
             return res.render('../views/pages/configJogo', {
                 jogos,
-                mensagem: 'Título Já existente'
+                mensagem: 'Título Já existente',
+                usuario: req.session
         });
 
         }
