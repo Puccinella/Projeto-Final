@@ -62,7 +62,7 @@ async function adicionarItemAoCarrinho(req, res) {
 
     pedidosFinalizados.forEach(p => {
         p.ItemPedidos.forEach(item => {
-            jogosComprados.push(item.Jogo.jogo_id);
+            jogosComprados.push(item.Jogo.id);
         });
     });
 
@@ -106,6 +106,8 @@ async function adicionarItemAoCarrinho(req, res) {
     pedidoAtual.preco_total = precoTotal;
     await pedidoAtual.save();
     return res.redirect('/carrinho');
+    console.log(JSON.stringify(pedidosFinalizados, null, 2));
+
 };
 
 
